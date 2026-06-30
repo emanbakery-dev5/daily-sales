@@ -168,3 +168,10 @@ export async function requirePermission(permission: Permission): Promise<{
 
   return { supabaseUser, profile };
 }
+
+// Backwards-compatible alias for existing dashboard actions
+export async function guard(
+  permission: Permission,
+): Promise<{ profile: UserProfile }> {
+  return requirePermission(permission);
+}

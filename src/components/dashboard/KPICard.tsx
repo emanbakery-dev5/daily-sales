@@ -1,71 +1,78 @@
-import React from "react";
-import { LucideIcon, ArrowUpRight, ArrowDownRight, Minus } from "lucide-react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowDownIcon, ArrowUpIcon, MinusIcon } from "lucide-react";
 
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-export interface KPICardProps {
+interface KPICardProps {
   title: string;
   value: string | number;
-  icon: LucideIcon;
-  trend?: "up" | "down" | "neutral";
-  trendValue?: string;
-  onClick?: () => void;
+  previousValue: string | number;
+  icon: React.ReactNode;
+  isCurrency?: boolean;
 }
 
 export function KPICard({
   title,
   value,
-  icon: Icon,
-  trend,
-  trendValue,
-  onClick,
+  previousValue,
+  icon,
+  isCurrency = false,
 }: KPICardProps) {
+  const numValue =
+    typeof value === "string"
+      ? parseFloat(value.replace(/[^0-9.-]+/g, ""))
+      : value;
+  const numPrev =
+    typeof previousValue === "string"
+      ? parseFloat(previousValue.replace(/[^0-9.-]+/g, ""))
+      : previousValue;
+
+  let percentChange = 0;
+  if (numPrev > 0) {
+    percentChange = ((numValue - numPrev) / numPrev) * 100;
+  } else if (numValue > 0) {
+    percentChange = 100; // From 0 to something
+  }
+
+  const isPositive = percentChange > 0;
+  const isNegative = percentChange < 0;
+  const isNeutral = percentChange === 0;
+
+  const displayValue = isCurrency
+    ? new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(numValue)
+    : new Intl.NumberFormat("en-US").format(numValue);
+
   return (
-    <div
-      onClick={onClick}
-      className={cn(
-        "group relative overflow-hidden rounded-2xl bg-[#0F172A] border border-white/5 p-5 transition-all duration-300",
-        onClick &&
-          "cursor-pointer hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10 hover:border-white/10",
-      )}
-    >
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-sm font-medium text-gray-400 mb-1">{title}</p>
-          <h3 className="text-2xl font-bold text-white tracking-tight">
-            {value}
-          </h3>
-        </div>
-        <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-300">
-          <Icon size={24} />
-        </div>
-      </div>
-
-      {trend && trendValue && (
-        <div className="mt-4 flex items-center gap-1.5 text-sm">
-          <div
-            className={cn(
-              "flex items-center gap-0.5 font-medium",
-              trend === "up" && "text-emerald-400",
-              trend === "down" && "text-rose-400",
-              trend === "neutral" && "text-gray-400",
-            )}
+    <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-sm font-medium">{title}</CardTitle>
+        <div className="text-muted-foreground">{icon}</div>
+      </CardHeader>
+      <CardContent>
+        <div className="text-2xl font-bold">{displayValue}</div>
+        <p className="text-xs text-muted-foreground mt-1 flex items-center">
+          {isPositive && (
+            <ArrowUpIcon className="mr-1 h-3 w-3 text-green-500" />
+          )}
+          {isNegative && (
+            <ArrowDownIcon className="mr-1 h-3 w-3 text-red-500" />
+          )}
+          {isNeutral && <MinusIcon className="mr-1 h-3 w-3 text-gray-500" />}
+          <span
+            className={
+              isPositive
+                ? "text-green-500 font-medium"
+                : isNegative
+                  ? "text-red-500 font-medium"
+                  : "text-gray-500 font-medium"
+            }
           >
-            {trend === "up" && <ArrowUpRight size={16} />}
-            {trend === "down" && <ArrowDownRight size={16} />}
-            {trend === "neutral" && <Minus size={16} />}
-            <span>{trendValue}</span>
-          </div>
-          <span className="text-gray-500 text-xs">vs last period</span>
-        </div>
-      )}
-
-      {/* Subtle bottom gradient glow on hover */}
-      <div className="absolute -bottom-px inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    </div>
+            {Math.abs(percentChange).toFixed(1)}%
+          </span>
+          <span className="ml-1">from yesterday</span>
+        </p>
+      </CardContent>
+    </Card>
   );
 }

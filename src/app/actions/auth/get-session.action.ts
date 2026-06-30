@@ -133,3 +133,9 @@ export async function getUserProfileAction(): Promise<
     return createActionError(AUTH_ERRORS.INTERNAL_ERROR, correlationId);
   }
 }
+
+// Backwards-compatible helper for dashboard components expecting a direct profile object
+export async function getUserProfile(): Promise<UserProfile | null> {
+  const result = await getUserProfileAction();
+  return result.success ? result.data : null;
+}

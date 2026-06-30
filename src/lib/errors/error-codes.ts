@@ -149,3 +149,13 @@ export const AUTH_ERRORS = {
     httpStatus: 500,
   },
 } as const satisfies Record<string, ErrorCodeDefinition>;
+
+// Backwards-compatible legacy error codes for dashboard actions
+export const ErrorCode = {
+  INTERNAL_SERVER_ERROR: {
+    code: "AUTH-099",
+    category: "System" as ErrorCategory,
+    message: "An unexpected error occurred. Please try again.",
+    httpStatus: 500,
+  },
+} as const;

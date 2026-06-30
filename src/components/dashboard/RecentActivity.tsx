@@ -1,93 +1,67 @@
-import React from "react";
-import { Clock, Truck, CreditCard, UserPlus, FileEdit } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { formatDistanceToNow } from "date-fns";
+import {
+  ActivityIcon,
+  PackageIcon,
+  DollarSignIcon,
+  TruckIcon,
+} from "lucide-react";
 
-const mockActivities = [
-  {
-    id: 1,
-    type: "dispatch",
-    description: "Dispatch #DSP-1029 created for Downtown Bakery",
-    user: "Ahmed O.",
-    timestamp: "10 mins ago",
-    icon: Truck,
-    color: "text-blue-400",
-    bg: "bg-blue-500/10",
-  },
-  {
-    id: 2,
-    type: "payment",
-    description: "Payment of $1,250 received from Corner Store",
-    user: "Fatima S.",
-    timestamp: "45 mins ago",
-    icon: CreditCard,
-    color: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-  },
-  {
-    id: 3,
-    type: "user",
-    description: "New salesperson profile created: Khalid M.",
-    user: "System Admin",
-    timestamp: "2 hours ago",
-    icon: UserPlus,
-    color: "text-purple-400",
-    bg: "bg-purple-500/10",
-  },
-  {
-    id: 4,
-    type: "product",
-    description: 'Price version v1.4 activated for "Whole Wheat Bread"',
-    user: "Pricing Manager",
-    timestamp: "Yesterday at 4:30 PM",
-    icon: FileEdit,
-    color: "text-amber-400",
-    bg: "bg-amber-500/10",
-  },
-];
+interface Activity {
+  id: string;
+  action: string;
+  description: string;
+  user_name: string;
+  created_at: string;
+}
 
-export function RecentActivity() {
+export function RecentActivity({ activities }: { activities: Activity[] }) {
+  const getIcon = (action: string) => {
+    switch (action.toLowerCase()) {
+      case "dispatch_created":
+        return <TruckIcon className="h-4 w-4 text-blue-500" />;
+      case "payment_posted":
+        return <DollarSignIcon className="h-4 w-4 text-green-500" />;
+      case "product_added":
+        return <PackageIcon className="h-4 w-4 text-orange-500" />;
+      default:
+        return <ActivityIcon className="h-4 w-4 text-gray-500" />;
+    }
+  };
+
   return (
-    <div className="bg-[#0F172A] border border-white/5 rounded-2xl p-6 h-full">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-white">Recent Activity</h3>
-        <button className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors">
-          View All
-        </button>
-      </div>
-
-      <div className="space-y-6">
-        {mockActivities.map((activity, index) => (
-          <div key={activity.id} className="relative flex gap-4">
-            {/* Connecting line for timeline effect */}
-            {index !== mockActivities.length - 1 && (
-              <div className="absolute left-5 top-10 bottom-[-24px] w-px bg-white/5" />
-            )}
-
-            <div
-              className={`relative z-10 shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${activity.bg} ${activity.color} ring-4 ring-[#0F172A]`}
-            >
-              <activity.icon size={18} />
-            </div>
-
-            <div className="flex-1 pb-1">
-              <p className="text-sm text-gray-200 font-medium mb-1 leading-snug">
-                {activity.description}
-              </p>
-              <div className="flex items-center gap-3 text-xs text-gray-500 font-medium">
-                <span className="flex items-center gap-1.5">
-                  <span className="w-4 h-4 rounded-full bg-gray-700 flex items-center justify-center text-[8px] text-white">
-                    {activity.user.charAt(0)}
-                  </span>
-                  {activity.user}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock size={12} />
-                  {activity.timestamp}
-                </span>
+    <Card className="h-full">
+      <CardHeader>
+        <CardTitle>Recent Activity</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          {activities.length === 0 ? (
+            <p className="text-sm text-muted-foreground text-center py-4">
+              No recent activity.
+            </p>
+          ) : (
+            activities.map((activity) => (
+              <div key={activity.id} className="flex items-start space-x-4">
+                <div className="mt-0.5 p-2 bg-muted rounded-full">
+                  {getIcon(activity.action)}
+                </div>
+                <div className="flex-1 space-y-1">
+                  <p className="text-sm font-medium leading-none">
+                    {activity.description}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {activity.user_name} •{" "}
+                    {formatDistanceToNow(new Date(activity.created_at), {
+                      addSuffix: true,
+                    })}
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+            ))
+          )}
+        </div>
+      </CardContent>
+    </Card>
   );
 }

@@ -30,14 +30,24 @@ export class AppError extends Error {
   public readonly correlationId: string;
   public readonly timestamp: string;
 
-  constructor(definition: ErrorCodeDefinition, correlationId?: string) {
-    super(definition.message);
+  constructor(
+    definition: ErrorCodeDefinition,
+    correlationIdOrMessage?: string,
+    details?: unknown,
+  ) {
+    const isLegacy =
+      details !== undefined ||
+      (correlationIdOrMessage && correlationIdOrMessage.length > 36);
+    super(isLegacy ? correlationIdOrMessage! : definition.message);
     this.name = "AppError";
     this.code = definition.code;
     this.category = definition.category;
-    this.userMessage = definition.message;
+    this.userMessage = isLegacy ? correlationIdOrMessage! : definition.message;
     this.httpStatus = definition.httpStatus;
-    this.correlationId = correlationId ?? randomUUID();
+    this.correlationId =
+      !isLegacy && correlationIdOrMessage
+        ? correlationIdOrMessage
+        : randomUUID();
     this.timestamp = new Date().toISOString();
   }
 

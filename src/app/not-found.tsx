@@ -12,8 +12,8 @@ export default function NotFoundPage() {
         </div>
         <h1 className="text-2xl font-bold mb-3">Page Not Found</h1>
         <p className="text-slate-400 mb-8">
-          The page you are looking for doesn't exist, has been removed, or is
-          temporarily unavailable.
+          The page you are looking for doesn&apos;t exist, has been removed, or
+          is temporarily unavailable.
         </p>
         <Link
           href="/dashboard"

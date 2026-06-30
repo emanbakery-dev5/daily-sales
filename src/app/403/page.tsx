@@ -11,8 +11,8 @@ export default function ForbiddenPage() {
           403
         </div>
         <h1 className="text-2xl font-bold mb-3">Access Denied</h1>
-        <p className="text-slate-400 mb-8">
-          You don't have permission to access this page or resource. Please
+        <p className="mt-4 text-muted-foreground text-center">
+          You don&apos;t have permission to access this page or resource. Please
           contact your system administrator if you believe this is an error.
         </p>
         <Link
