@@ -22,16 +22,16 @@ This module ensures that only authorized personnel can access business functions
 
 The User Management module shall:
 
-* Create new users.
-* Edit existing users.
-* Enable and disable user accounts.
-* Assign system roles.
-* Assign custom permissions.
-* Reset user passwords.
-* Search and filter users.
-* View user details.
-* Prevent unauthorized administrative actions.
-* Maintain complete audit history.
+- Create new users.
+- Edit existing users.
+- Enable and disable user accounts.
+- Assign system roles.
+- Assign custom permissions.
+- Reset user passwords.
+- Search and filter users.
+- View user details.
+- Prevent unauthorized administrative actions.
+- Maintain complete audit history.
 
 ---
 
@@ -143,14 +143,14 @@ Displays all registered application users.
 
 Allows administrators to:
 
-* Search
-* Filter
-* Sort
-* View
-* Edit
-* Enable
-* Disable
-* Reset Password
+- Search
+- Filter
+- Sort
+- View
+- Edit
+- Enable
+- Disable
+- Reset Password
 
 depending on permissions.
 
@@ -160,14 +160,14 @@ depending on permissions.
 
 The page contains:
 
-* Breadcrumb
-* Page Title
-* Search Bar
-* Filters
-* Refresh Button
-* Create User Button
-* User Table
-* Pagination Controls
+- Breadcrumb
+- Page Title
+- Search Bar
+- Filters
+- Refresh Button
+- Create User Button
+- User Table
+- Pagination Controls
 
 ---
 
@@ -263,11 +263,11 @@ Search operates in real time with a debounce of 300 milliseconds.
 
 Searchable fields:
 
-* First Name
-* Last Name
-* Email
-* Username
-* Role
+- First Name
+- Last Name
+- Email
+- Username
+- Role
 
 Search is case-insensitive.
 
@@ -329,10 +329,10 @@ Pending Invitation (Future)
 
 Clicking Refresh performs:
 
-* Reload user list.
-* Preserve filters.
-* Preserve search query.
-* Preserve pagination.
+- Reload user list.
+- Preserve filters.
+- Preserve search query.
+- Preserve pagination.
 
 The page does not reload.
 
@@ -434,9 +434,9 @@ Exceptions:
 
 Clicks on:
 
-* Checkbox
-* Action Menu
-* Hyperlinks
+- Checkbox
+- Action Menu
+- Hyperlinks
 
 perform only their intended action.
 
@@ -480,10 +480,10 @@ Last
 
 While data loads:
 
-* Skeleton rows are displayed.
-* Search is disabled.
-* Filters are disabled.
-* Action buttons are disabled.
+- Skeleton rows are displayed.
+- Search is disabled.
+- Filters are disabled.
+- Action buttons are disabled.
 
 The table structure remains visible to prevent layout shift.
 
@@ -535,9 +535,9 @@ Clear Filters
 
 Selecting Clear Filters:
 
-* Clears search.
-* Clears filters.
-* Reloads full list.
+- Clears search.
+- Clears filters.
+- Reloads full list.
 
 ---
 
@@ -567,29 +567,29 @@ Retry reloads only the table data.
 
 Search Field
 
-* Focus border highlights.
-* Clear icon appears when text exists.
+- Focus border highlights.
+- Clear icon appears when text exists.
 
 Buttons
 
-* Hover elevation.
-* Pointer cursor.
-* Smooth transition.
+- Hover elevation.
+- Pointer cursor.
+- Smooth transition.
 
 Table Rows
 
-* Hover background highlight.
-* Pointer cursor.
+- Hover background highlight.
+- Pointer cursor.
 
 Status Badge
 
-* Tooltip displays full status description.
+- Tooltip displays full status description.
 
 Action Menu
 
-* Opens with fade animation.
-* Closes on outside click.
-* Closes on Escape key.
+- Opens with fade animation.
+- Closes on outside click.
+- Closes on Escape key.
 
 ---
 
@@ -597,13 +597,13 @@ Action Menu
 
 This section is complete when:
 
-* User list displays successfully.
-* Search functions correctly.
-* Filters apply without page reload.
-* Pagination functions correctly.
-* Role-based visibility is enforced.
-* Loading, empty and error states behave correctly.
-* Table actions appear according to permissions.
+- User list displays successfully.
+- Search functions correctly.
+- Filters apply without page reload.
+- Pagination functions correctly.
+- Role-based visibility is enforced.
+- Loading, empty and error states behave correctly.
+- Table actions appear according to permissions.
 
 ---
 
@@ -627,12 +627,12 @@ The new user account becomes available immediately after successful creation unl
 
 The page contains:
 
-* Breadcrumb
-* Page Title
-* User Information Card
-* Account Settings Card
-* Role Assignment Card
-* Action Bar
+- Breadcrumb
+- Page Title
+- User Information Card
+- Account Settings Card
+- Role Assignment Card
+- Action Bar
 
 Layout:
 
@@ -674,11 +674,11 @@ New User
 
 Fields:
 
-* First Name
-* Last Name
-* Email Address
-* Username
-* Phone Number (Optional)
+- First Name
+- Last Name
+- Email Address
+- Username
+- Phone Number (Optional)
 
 Required fields are marked with a red asterisk.
 
@@ -694,9 +694,9 @@ Maximum Length:
 
 Validation:
 
-* Cannot be empty.
-* Leading/trailing spaces removed.
-* Numbers not permitted.
+- Cannot be empty.
+- Leading/trailing spaces removed.
+- Numbers not permitted.
 
 ---
 
@@ -724,10 +724,10 @@ Maximum Length:
 
 Validation:
 
-* Valid email format.
-* Must be unique.
-* Case-insensitive uniqueness.
-* Trim whitespace.
+- Valid email format.
+- Must be unique.
+- Case-insensitive uniqueness.
+- Trim whitespace.
 
 Example:
 
@@ -747,11 +747,11 @@ Maximum Length:
 
 Validation:
 
-* Unique.
-* Letters
-* Numbers
-* Underscore
-* Period
+- Unique.
+- Letters
+- Numbers
+- Underscore
+- Period
 
 Spaces are not permitted.
 
@@ -769,9 +769,9 @@ Optional
 
 Validation:
 
-* Digits only
-* Country code supported
-* Maximum 20 characters
+- Digits only
+- Country code supported
+- Maximum 20 characters
 
 ---
 
@@ -795,8 +795,8 @@ Active
 
 Available values:
 
-* Active
-* Disabled
+- Active
+- Disabled
 
 ---
 
@@ -836,11 +836,11 @@ Users are assigned one primary role.
 
 Dropdown options:
 
-* System Administrator
-* Operations Manager
-* Finance Officer
-* Sales Coordinator
-* Read-Only User
+- System Administrator
+- Operations Manager
+- Finance Officer
+- Sales Coordinator
+- Read-Only User
 
 Only authorized administrators may assign System Administrator.
 
@@ -864,9 +864,9 @@ Section remains hidden until implemented.
 
 Validation occurs:
 
-* On field blur.
-* On Save.
-* On server.
+- On field blur.
+- On Save.
+- On server.
 
 Errors appear directly below the relevant field.
 
@@ -987,25 +987,25 @@ Read-only.
 
 Information displayed:
 
-* Avatar
-* Name
-* Email
-* Username
-* Role
-* Status
-* Phone
-* Last Login
-* Created Date
-* Updated Date
+- Avatar
+- Name
+- Email
+- Username
+- Role
+- Status
+- Phone
+- Last Login
+- Created Date
+- Updated Date
 
 ---
 
 Actions available:
 
-* Edit
-* Disable
-* Enable
-* Reset Password
+- Edit
+- Disable
+- Enable
+- Reset Password
 
 based on permissions.
 
@@ -1027,16 +1027,16 @@ Modify user information.
 
 Editable fields:
 
-* First Name
-* Last Name
-* Phone Number
-* Role
-* Status
+- First Name
+- Last Name
+- Phone Number
+- Role
+- Status
 
 Not editable:
 
-* Email (Version 1)
-* Username
+- Email (Version 1)
+- Username
 
 ---
 
@@ -1084,12 +1084,12 @@ User updated successfully.
 
 Validation includes:
 
-* Required fields
-* Duplicate email
-* Duplicate username
-* Invalid phone number
-* Invalid role
-* Permission validation
+- Required fields
+- Duplicate email
+- Duplicate username
+- Invalid phone number
+- Invalid role
+- Permission validation
 
 Server validation always takes precedence.
 
@@ -1099,10 +1099,10 @@ Server validation always takes precedence.
 
 During create/update:
 
-* Inputs disabled.
-* Buttons disabled.
-* Loading spinner visible.
-* Duplicate submissions prevented.
+- Inputs disabled.
+- Buttons disabled.
+- Loading spinner visible.
+- Duplicate submissions prevented.
 
 ---
 
@@ -1172,11 +1172,11 @@ Please try again.
 
 Create and Edit forms support:
 
-* Keyboard navigation
-* Screen reader labels
-* Visible focus indicators
-* Accessible validation messages
-* Semantic HTML form controls
+- Keyboard navigation
+- Screen reader labels
+- Visible focus indicators
+- Accessible validation messages
+- Semantic HTML form controls
 
 ---
 
@@ -1184,14 +1184,14 @@ Create and Edit forms support:
 
 This section is complete when:
 
-* Administrators can create users.
-* Administrators can edit users.
-* Validation behaves correctly.
-* Duplicate users cannot be created.
-* Temporary passwords are generated securely.
-* Unsaved changes trigger confirmation.
-* Success and error notifications display correctly.
-* Loading states prevent duplicate submissions.
+- Administrators can create users.
+- Administrators can edit users.
+- Validation behaves correctly.
+- Duplicate users cannot be created.
+- Temporary passwords are generated securely.
+- Unsaved changes trigger confirmation.
+- Success and error notifications display correctly.
+- Loading states prevent duplicate submissions.
 
 ---
 

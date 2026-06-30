@@ -16,36 +16,36 @@ The system is designed as a **Progressive Web Application (PWA)**, allowing auth
 
 ## Project Goals
 
-* Centralize all distribution operations.
-* Eliminate manual paperwork.
-* Maintain accurate running customer ledgers.
-* Automate financial calculations.
-* Improve dispatch efficiency.
-* Support enterprise-level security.
-* Maintain complete audit history.
-* Enable future business expansion without major architectural changes.
+- Centralize all distribution operations.
+- Eliminate manual paperwork.
+- Maintain accurate running customer ledgers.
+- Automate financial calculations.
+- Improve dispatch efficiency.
+- Support enterprise-level security.
+- Maintain complete audit history.
+- Enable future business expansion without major architectural changes.
 
 ---
 
 ## Core Business Modules
 
-* Authentication & Authorization
-* Dashboard
-* User Management
-* Role & Permission Management
-* Salesperson Management
-* Product Management
-* Category Management
-* Dispatch Management
-* Pricing Management
-* Running Ledger
-* Payment Management
-* Reporting & Analytics
-* Notification Center
-* WhatsApp Integration
-* Audit Logging
-* System Configuration
-* PWA Support
+- Authentication & Authorization
+- Dashboard
+- User Management
+- Role & Permission Management
+- Salesperson Management
+- Product Management
+- Category Management
+- Dispatch Management
+- Pricing Management
+- Running Ledger
+- Payment Management
+- Reporting & Analytics
+- Notification Center
+- WhatsApp Integration
+- Audit Logging
+- System Configuration
+- PWA Support
 
 ---
 
@@ -53,27 +53,27 @@ The system is designed as a **Progressive Web Application (PWA)**, allowing auth
 
 ### Frontend
 
-* Next.js (App Router)
-* React
-* TypeScript
-* Tailwind CSS
-* shadcn/ui
-* React Hook Form
-* Zod
-* TanStack Query
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- React Hook Form
+- Zod
+- TanStack Query
 
 ### Backend
 
-* Supabase PostgreSQL
-* Supabase Authentication
-* Supabase Storage
-* Supabase Realtime
-* Supabase Edge Functions
+- Supabase PostgreSQL
+- Supabase Authentication
+- Supabase Storage
+- Supabase Realtime
+- Supabase Edge Functions
 
 ### Deployment
 
-* Vercel
-* Supabase Cloud
+- Vercel
+- Supabase Cloud
 
 ---
 
@@ -81,17 +81,17 @@ The system is designed as a **Progressive Web Application (PWA)**, allowing auth
 
 The application follows enterprise software engineering principles including:
 
-* Domain-Driven Design (DDD)
-* Workflow Engine
-* Event-Driven Architecture
-* Command Query Responsibility Segregation (CQRS)
-* Repository Pattern
-* Service Layer Pattern
-* Configuration-Driven ERP
-* Versioned Business Records
-* Immutable Financial History
-* Row Level Security (RLS)
-* Audit-First Design
+- Domain-Driven Design (DDD)
+- Workflow Engine
+- Event-Driven Architecture
+- Command Query Responsibility Segregation (CQRS)
+- Repository Pattern
+- Service Layer Pattern
+- Configuration-Driven ERP
+- Versioned Business Records
+- Immutable Financial History
+- Row Level Security (RLS)
+- Audit-First Design
 
 ---
 
@@ -99,111 +99,111 @@ The application follows enterprise software engineering principles including:
 
 ### Authentication
 
-* Secure Login
-* Session Management
-* Role-Based Access Control
-* Secure Logout
-* Session Timeout
-* Device Validation
+- Secure Login
+- Session Management
+- Role-Based Access Control
+- Secure Logout
+- Session Timeout
+- Device Validation
 
 ---
 
 ### Dashboard
 
-* Daily Dispatch Summary
-* Daily Collections
-* Outstanding Balances
-* Sales Metrics
-* Notifications
-* Business Insights
+- Daily Dispatch Summary
+- Daily Collections
+- Outstanding Balances
+- Sales Metrics
+- Notifications
+- Business Insights
 
 ---
 
 ### Salesperson Management
 
-* Salesperson Profiles
-* Contact Information
-* Status Management
-* Credit Limits
-* Running Account Statements
-* Payment History
-* Dispatch History
+- Salesperson Profiles
+- Contact Information
+- Status Management
+- Credit Limits
+- Running Account Statements
+- Payment History
+- Dispatch History
 
 ---
 
 ### Product Management
 
-* Product Catalog
-* Categories
-* Active / Inactive Products
-* Product Pricing
-* Product Search
+- Product Catalog
+- Categories
+- Active / Inactive Products
+- Product Pricing
+- Product Search
 
 ---
 
 ### Pricing Engine
 
-* Salesperson-Specific Pricing
-* Historical Pricing
-* Effective Date Versioning
-* Bulk Price Updates
-* Complete Audit Trail
+- Salesperson-Specific Pricing
+- Historical Pricing
+- Effective Date Versioning
+- Bulk Price Updates
+- Complete Audit Trail
 
 ---
 
 ### Dispatch Engine
 
-* Create Daily Dispatch
-* Edit Dispatch (Business Rules)
-* Print Dispatch
-* PDF Export
-* WhatsApp Dispatch Delivery
-* Automatic Ledger Posting
+- Create Daily Dispatch
+- Edit Dispatch (Business Rules)
+- Print Dispatch
+- PDF Export
+- WhatsApp Dispatch Delivery
+- Automatic Ledger Posting
 
 ---
 
 ### Ledger Management
 
-* Running Balance
-* Debit Entries
-* Credit Entries
-* Payments
-* Opening Balance
-* Closing Balance
-* Statement Generation
+- Running Balance
+- Debit Entries
+- Credit Entries
+- Payments
+- Opening Balance
+- Closing Balance
+- Statement Generation
 
 ---
 
 ### Payment Management
 
-* Record Payments
-* Reverse Payments (Permission Controlled)
-* Receipt Printing
-* Payment History
+- Record Payments
+- Reverse Payments (Permission Controlled)
+- Receipt Printing
+- Payment History
 
 ---
 
 ### Reports
 
-* Daily Reports
-* Weekly Reports
-* Monthly Reports
-* Outstanding Reports
-* Payment Reports
-* Product Reports
-* Salesperson Reports
-* Inventory Reports
-* Custom Reports
+- Daily Reports
+- Weekly Reports
+- Monthly Reports
+- Outstanding Reports
+- Payment Reports
+- Product Reports
+- Salesperson Reports
+- Inventory Reports
+- Custom Reports
 
 ---
 
 ### Notifications
 
-* WhatsApp Notifications
-* Credit Warnings
-* Dispatch Notifications
-* Payment Confirmations
-* Future Email Support
+- WhatsApp Notifications
+- Credit Warnings
+- Dispatch Notifications
+- Payment Confirmations
+- Future Email Support
 
 ---
 
@@ -211,14 +211,14 @@ The application follows enterprise software engineering principles including:
 
 Every critical operation is recorded including:
 
-* Login
-* Logout
-* Dispatch Creation
-* Payment Recording
-* Price Changes
-* User Updates
-* Permission Changes
-* System Configuration Changes
+- Login
+- Logout
+- Dispatch Creation
+- Payment Recording
+- Price Changes
+- User Updates
+- Permission Changes
+- System Configuration Changes
 
 ---
 
@@ -228,15 +228,15 @@ The application is built using a security-first approach.
 
 Security features include:
 
-* Supabase Authentication
-* Row Level Security (RLS)
-* Secure Server Actions
-* Role-Based Authorization
-* Permission-Based Access Control
-* Audit Logging
-* Secure Environment Variables
-* Input Validation
-* Output Sanitization
+- Supabase Authentication
+- Row Level Security (RLS)
+- Secure Server Actions
+- Role-Based Authorization
+- Permission-Based Access Control
+- Audit Logging
+- Secure Environment Variables
+- Input Validation
+- Output Sanitization
 
 ---
 
@@ -244,13 +244,13 @@ Security features include:
 
 The application supports:
 
-* Desktop Installation
-* Mobile Installation
-* Offline Shell
-* Responsive Design
-* Touch Optimization
-* Light Mode
-* Dark Mode
+- Desktop Installation
+- Mobile Installation
+- Offline Shell
+- Responsive Design
+- Touch Optimization
+- Light Mode
+- Dark Mode
 
 ---
 
@@ -286,24 +286,24 @@ supabase/
 
 The project follows these engineering principles:
 
-* Clean Architecture
-* SOLID Principles
-* DRY (Don't Repeat Yourself)
-* KISS (Keep It Simple)
-* Convention over Configuration
-* Security by Default
-* Testability
-* Scalability
-* Maintainability
+- Clean Architecture
+- SOLID Principles
+- DRY (Don't Repeat Yourself)
+- KISS (Keep It Simple)
+- Convention over Configuration
+- Security by Default
+- Testability
+- Scalability
+- Maintainability
 
 ---
 
 ## Deployment Targets
 
-* Production
-* Staging
-* Development
-* Local Development Environment
+- Production
+- Staging
+- Development
+- Local Development Environment
 
 ---
 
@@ -311,16 +311,16 @@ The project follows these engineering principles:
 
 The architecture is designed to support future expansion, including:
 
-* Multi-Branch Operations
-* Fleet Management
-* GPS Delivery Tracking
-* Inventory Warehousing
-* Manufacturing Integration
-* Customer Self-Service Portal
-* Business Intelligence Dashboards
-* AI-Assisted Analytics
-* Accounting Integrations
-* Mobile Applications
+- Multi-Branch Operations
+- Fleet Management
+- GPS Delivery Tracking
+- Inventory Warehousing
+- Manufacturing Integration
+- Customer Self-Service Portal
+- Business Intelligence Dashboards
+- AI-Assisted Analytics
+- Accounting Integrations
+- Mobile Applications
 
 ---
 

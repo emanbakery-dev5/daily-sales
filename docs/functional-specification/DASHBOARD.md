@@ -24,14 +24,14 @@ The dashboard is role-aware, meaning that each user only sees the information th
 
 The Dashboard shall:
 
-* Present real-time business metrics.
-* Display actionable information.
-* Reduce navigation time.
-* Surface operational alerts.
-* Highlight outstanding collections.
-* Display recent business activities.
-* Provide shortcuts to common tasks.
-* Refresh automatically without requiring a full page reload.
+- Present real-time business metrics.
+- Display actionable information.
+- Reduce navigation time.
+- Surface operational alerts.
+- Highlight outstanding collections.
+- Display recent business activities.
+- Provide shortcuts to common tasks.
+- Refresh automatically without requiring a full page reload.
 
 ---
 
@@ -99,16 +99,16 @@ Dashboard Ready
 
 The dashboard consists of:
 
-* Top Navigation Bar
-* Left Sidebar Navigation
-* Breadcrumb
-* Welcome Banner
-* KPI Cards
-* Charts Section
-* Quick Actions Panel
-* Recent Activity Feed
-* Notification Panel
-* Footer
+- Top Navigation Bar
+- Left Sidebar Navigation
+- Breadcrumb
+- Welcome Banner
+- KPI Cards
+- Charts Section
+- Quick Actions Panel
+- Recent Activity Feed
+- Notification Panel
+- Footer
 
 The layout uses responsive CSS Grid.
 
@@ -118,9 +118,9 @@ The layout uses responsive CSS Grid.
 
 Displays:
 
-* User's first name.
-* Current date.
-* Personalized greeting.
+- User's first name.
+- Current date.
+- Personalized greeting.
 
 Examples:
 
@@ -156,7 +156,7 @@ Default cards include:
 
 Displays:
 
-* Total dispatches created today.
+- Total dispatches created today.
 
 Click Action:
 
@@ -168,7 +168,7 @@ Navigate to filtered Dispatch List.
 
 Displays:
 
-* Total value of today's dispatches.
+- Total value of today's dispatches.
 
 Click Action:
 
@@ -180,7 +180,7 @@ Open Daily Revenue Report.
 
 Displays:
 
-* Total customer outstanding balance.
+- Total customer outstanding balance.
 
 Click Action:
 
@@ -192,7 +192,7 @@ Open Outstanding Ledger Report.
 
 Displays:
 
-* Total payments received today.
+- Total payments received today.
 
 Click Action:
 
@@ -204,7 +204,7 @@ Open Payment Report.
 
 Displays:
 
-* Number of active salespersons.
+- Number of active salespersons.
 
 Click Action:
 
@@ -216,7 +216,7 @@ Navigate to Salesperson List.
 
 Displays:
 
-* Number of active products.
+- Number of active products.
 
 Click Action:
 
@@ -228,17 +228,17 @@ Navigate to Product List.
 
 Each KPI card contains:
 
-* Icon
-* Title
-* Value
-* Trend Indicator
-* Last Updated Timestamp
+- Icon
+- Title
+- Value
+- Trend Indicator
+- Last Updated Timestamp
 
 Hover State:
 
-* Elevation increases.
-* Cursor changes to pointer.
-* Shadow becomes more prominent.
+- Elevation increases.
+- Cursor changes to pointer.
+- Shadow becomes more prominent.
 
 Clicking anywhere on the card triggers navigation.
 
@@ -250,15 +250,15 @@ Trend values compare today's data with the previous business day.
 
 Indicators include:
 
-* Increase
-* Decrease
-* No Change
+- Increase
+- Decrease
+- No Change
 
 Visual representation:
 
-* Up Arrow
-* Down Arrow
-* Neutral Line
+- Up Arrow
+- Down Arrow
+- Neutral Line
 
 Percentage values are rounded to one decimal place.
 
@@ -270,11 +270,11 @@ Displays the most frequently used actions.
 
 Default actions:
 
-* New Dispatch
-* Record Payment
-* Add Salesperson
-* Add Product
-* View Reports
+- New Dispatch
+- Record Payment
+- Add Salesperson
+- Add Product
+- View Reports
 
 Buttons are displayed only if the user has permission.
 
@@ -284,10 +284,10 @@ Buttons are displayed only if the user has permission.
 
 Each Quick Action button:
 
-* Uses an icon.
-* Displays a descriptive label.
-* Supports keyboard focus.
-* Shows tooltip on hover.
+- Uses an icon.
+- Displays a descriptive label.
+- Supports keyboard focus.
+- Shows tooltip on hover.
 
 Clicking the button immediately navigates to the corresponding page.
 
@@ -301,18 +301,18 @@ Displays recent business events.
 
 Examples:
 
-* Dispatch Created
-* Payment Recorded
-* Product Updated
-* User Created
-* Price Version Activated
+- Dispatch Created
+- Payment Recorded
+- Product Updated
+- User Created
+- Price Version Activated
 
 Each activity includes:
 
-* Icon
-* Description
-* User
-* Timestamp
+- Icon
+- Description
+- User
+- Timestamp
 
 The feed is sorted in descending chronological order.
 
@@ -324,10 +324,10 @@ Displays system notifications.
 
 Examples:
 
-* Failed WhatsApp delivery.
-* Pending configuration changes.
-* Credit limit exceeded.
-* Upcoming future price activation.
+- Failed WhatsApp delivery.
+- Pending configuration changes.
+- Credit limit exceeded.
+- Upcoming future price activation.
 
 Unread notifications are visually highlighted.
 
@@ -339,10 +339,10 @@ Clicking a notification opens the relevant screen.
 
 During data retrieval:
 
-* Skeleton loaders replace KPI cards.
-* Charts display placeholders.
-* Recent Activity displays loading rows.
-* Quick Actions remain disabled until permissions are loaded.
+- Skeleton loaders replace KPI cards.
+- Charts display placeholders.
+- Recent Activity displays loading rows.
+- Quick Actions remain disabled until permissions are loaded.
 
 No layout shifting should occur.
 
@@ -388,10 +388,10 @@ Users may also manually refresh using the Refresh button.
 
 Manual refresh performs:
 
-* Reload KPI cards.
-* Reload charts.
-* Reload activity feed.
-* Reload notifications.
+- Reload KPI cards.
+- Reload charts.
+- Reload activity feed.
+- Reload notifications.
 
 The page itself does not reload.
 
@@ -423,13 +423,13 @@ Retry requests only the failed data source rather than refreshing the entire das
 
 The Dashboard is considered complete for this section when:
 
-* Users are redirected to the dashboard after login.
-* KPI cards display correctly.
-* Quick actions respect permissions.
-* Recent activity loads successfully.
-* Notifications are visible.
-* Loading and empty states behave correctly.
-* Automatic refresh functions as expected.
+- Users are redirected to the dashboard after login.
+- KPI cards display correctly.
+- Quick actions respect permissions.
+- Recent activity loads successfully.
+- Notifications are visible.
+- Loading and empty states behave correctly.
+- Automatic refresh functions as expected.
 
 ---
 

@@ -156,13 +156,13 @@ Queries never perform mutations.
 
 Every command:
 
-* Changes state
-* Runs inside a workflow
-* Executes inside a transaction
-* Creates audit entries
-* May publish events
-* Returns typed responses
-* Is idempotent where applicable
+- Changes state
+- Runs inside a workflow
+- Executes inside a transaction
+- Creates audit entries
+- May publish events
+- Returns typed responses
+- Is idempotent where applicable
 
 ---
 
@@ -170,13 +170,13 @@ Every command:
 
 Every query:
 
-* Is read-only
-* Does not publish events
-* Does not create audit entries unless required for compliance
-* May use caching
-* May use pagination
-* May use optimized SQL views
-* May aggregate data
+- Is read-only
+- Does not publish events
+- Does not create audit entries unless required for compliance
+- May use caching
+- May use pagination
+- May use optimized SQL views
+- May aggregate data
 
 ---
 
@@ -186,50 +186,50 @@ The following operations are implemented as commands.
 
 ### Authentication Commands
 
-* Login
-* Logout
-* Change Password
-* Reset Password
-* Refresh Session
+- Login
+- Logout
+- Change Password
+- Reset Password
+- Refresh Session
 
 ---
 
 ### User Commands
 
-* Create User
-* Update User
-* Disable User
-* Enable User
-* Assign Role
-* Remove Role
+- Create User
+- Update User
+- Disable User
+- Enable User
+- Assign Role
+- Remove Role
 
 ---
 
 ### Salesperson Commands
 
-* Create Salesperson
-* Update Salesperson
-* Freeze Salesperson
-* Activate Salesperson
-* Update Credit Limit
+- Create Salesperson
+- Update Salesperson
+- Freeze Salesperson
+- Activate Salesperson
+- Update Credit Limit
 
 ---
 
 ### Product Commands
 
-* Create Product
-* Update Product
-* Archive Product
-* Restore Product
+- Create Product
+- Update Product
+- Archive Product
+- Restore Product
 
 ---
 
 ### Pricing Commands
 
-* Create Price Version
-* Activate Price Version
-* Bulk Price Update
-* Delete Draft Price Version
+- Create Price Version
+- Activate Price Version
+- Bulk Price Update
+- Delete Draft Price Version
 
 Historical price records are never modified.
 
@@ -237,36 +237,36 @@ Historical price records are never modified.
 
 ### Dispatch Commands
 
-* Create Dispatch
-* Update Dispatch
-* Cancel Dispatch
-* Print Dispatch
-* Reprint Dispatch
-* Approve Dispatch
+- Create Dispatch
+- Update Dispatch
+- Cancel Dispatch
+- Print Dispatch
+- Reprint Dispatch
+- Approve Dispatch
 
 ---
 
 ### Payment Commands
 
-* Record Payment
-* Reverse Payment
-* Allocate Payment
+- Record Payment
+- Reverse Payment
+- Allocate Payment
 
 ---
 
 ### Ledger Commands
 
-* Create Ledger Entry
-* Reverse Ledger Entry
-* Recalculate Ledger
+- Create Ledger Entry
+- Reverse Ledger Entry
+- Recalculate Ledger
 
 ---
 
 ### Notification Commands
 
-* Send WhatsApp
-* Retry WhatsApp
-* Send Email
+- Send WhatsApp
+- Retry WhatsApp
+- Send Email
 
 ---
 
@@ -278,66 +278,66 @@ The following operations are implemented as queries.
 
 ### Dashboard Queries
 
-* Daily Summary
-* Weekly Summary
-* Monthly Summary
-* Outstanding Balance
-* Sales Summary
-* Collection Summary
+- Daily Summary
+- Weekly Summary
+- Monthly Summary
+- Outstanding Balance
+- Sales Summary
+- Collection Summary
 
 ---
 
 ### Salesperson Queries
 
-* Salesperson Details
-* Customer Statement
-* Payment History
-* Dispatch History
-* Outstanding Balance
+- Salesperson Details
+- Customer Statement
+- Payment History
+- Dispatch History
+- Outstanding Balance
 
 ---
 
 ### Product Queries
 
-* Product Catalogue
-* Product Pricing
-* Product Categories
+- Product Catalogue
+- Product Pricing
+- Product Categories
 
 ---
 
 ### Dispatch Queries
 
-* Dispatch Details
-* Dispatch History
-* Daily Dispatches
-* Monthly Dispatches
+- Dispatch Details
+- Dispatch History
+- Daily Dispatches
+- Monthly Dispatches
 
 ---
 
 ### Ledger Queries
 
-* Running Ledger
-* Ledger Statement
-* Financial History
+- Running Ledger
+- Ledger Statement
+- Financial History
 
 ---
 
 ### Payment Queries
 
-* Payment History
-* Payment Summary
-* Payment Receipt
+- Payment History
+- Payment Summary
+- Payment Receipt
 
 ---
 
 ### Reporting Queries
 
-* Daily Reports
-* Weekly Reports
-* Monthly Reports
-* Product Reports
-* Customer Reports
-* Outstanding Reports
+- Daily Reports
+- Weekly Reports
+- Monthly Reports
+- Product Reports
+- Customer Reports
+- Outstanding Reports
 
 ---
 
@@ -413,9 +413,9 @@ Every command executes inside a database transaction.
 
 If any step fails:
 
-* Rollback Transaction
-* Publish No Events
-* Return Error
+- Rollback Transaction
+- Publish No Events
+- Return Error
 
 Queries never create transactions unless explicitly required by PostgreSQL.
 
@@ -465,17 +465,17 @@ Successful commands invalidate affected cache entries.
 
 Every command validates:
 
-* Authentication
-* Authorization
-* Business Rules
-* Ownership
-* Audit Requirements
+- Authentication
+- Authorization
+- Business Rules
+- Ownership
+- Audit Requirements
 
 Every query validates:
 
-* Authentication
-* Authorization
-* Row-Level Security (RLS)
+- Authentication
+- Authorization
+- Row-Level Security (RLS)
 
 No client-side permission checks are trusted.
 
@@ -485,18 +485,18 @@ No client-side permission checks are trusted.
 
 Command failures include:
 
-* Validation Error
-* Permission Error
-* Business Rule Error
-* Infrastructure Error
-* External Integration Error
+- Validation Error
+- Permission Error
+- Business Rule Error
+- Infrastructure Error
+- External Integration Error
 
 Query failures include:
 
-* Validation Error
-* Permission Error
-* Data Not Found
-* Infrastructure Error
+- Validation Error
+- Permission Error
+- Data Not Found
+- Infrastructure Error
 
 All failures include a Correlation ID for traceability.
 

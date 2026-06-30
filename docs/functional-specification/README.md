@@ -166,11 +166,11 @@ Destructive actions require confirmation.
 
 Examples include:
 
-* Logout
-* Delete
-* Cancel Dispatch
-* Reverse Payment
-* Disable User
+- Logout
+- Delete
+- Cancel Dispatch
+- Reverse Payment
+- Disable User
 
 ---
 
@@ -180,12 +180,12 @@ System status is always visible.
 
 Examples include:
 
-* Loading indicators
-* Saving indicators
-* Success notifications
-* Error notifications
-* Empty states
-* Progress indicators
+- Loading indicators
+- Saving indicators
+- Success notifications
+- Error notifications
+- Empty states
+- Progress indicators
 
 ---
 
@@ -233,17 +233,17 @@ Unauthorized modules are never displayed.
 
 Primary navigation includes:
 
-* Dashboard
-* Salespersons
-* Products
-* Categories
-* Pricing
-* Dispatch
-* Ledger
-* Payments
-* Reports
-* Administration
-* Settings
+- Dashboard
+- Salespersons
+- Products
+- Categories
+- Pricing
+- Dispatch
+- Ledger
+- Payments
+- Reports
+- Administration
+- Settings
 
 Secondary navigation is module-specific.
 
@@ -301,13 +301,13 @@ Cancel Dispatch
 
 Every table supports:
 
-* Sorting
-* Searching
-* Pagination
-* Column visibility
-* Row selection
-* Empty state
-* Loading state
+- Sorting
+- Searching
+- Pagination
+- Column visibility
+- Row selection
+- Empty state
+- Loading state
 
 Future versions may support column personalization.
 
@@ -317,12 +317,12 @@ Future versions may support column personalization.
 
 Every form supports:
 
-* Required field indicators
-* Inline validation
-* Server validation
-* Keyboard navigation
-* Enter key submission where appropriate
-* Escape key cancellation for dialogs
+- Required field indicators
+- Inline validation
+- Server validation
+- Keyboard navigation
+- Enter key submission where appropriate
+- Escape key cancellation for dialogs
 
 ---
 
@@ -330,11 +330,11 @@ Every form supports:
 
 Every modal dialog:
 
-* Prevents accidental destructive actions.
-* Traps keyboard focus.
-* Supports Escape to close (unless destructive confirmation is pending).
-* Restores focus to the triggering element when closed.
-* Displays clear primary and secondary actions.
+- Prevents accidental destructive actions.
+- Traps keyboard focus.
+- Supports Escape to close (unless destructive confirmation is pending).
+- Restores focus to the triggering element when closed.
+- Displays clear primary and secondary actions.
 
 ---
 
@@ -344,10 +344,10 @@ The application uses toast notifications for transient feedback.
 
 Types include:
 
-* Success
-* Information
-* Warning
-* Error
+- Success
+- Information
+- Warning
+- Error
 
 Notifications never replace validation messages.
 
@@ -357,11 +357,11 @@ Notifications never replace validation messages.
 
 Every functional module documents:
 
-* Required permissions
-* Restricted actions
-* Read-only behavior
-* Hidden UI elements
-* Disabled controls
+- Required permissions
+- Restricted actions
+- Read-only behavior
+- Hidden UI elements
+- Disabled controls
 
 Permissions are always enforced by the server.
 
@@ -373,10 +373,10 @@ UI permissions improve usability but are not security controls.
 
 Business rules referenced throughout these documents originate from:
 
-* BUSINESS_RULE_ENGINE.md
-* WORKFLOW_ENGINE.md
-* SECURITY_MODEL.md
-* DOMAIN_MODEL.md
+- BUSINESS_RULE_ENGINE.md
+- WORKFLOW_ENGINE.md
+- SECURITY_MODEL.md
+- DOMAIN_MODEL.md
 
 Functional specifications must never redefine business rules.
 
@@ -390,11 +390,11 @@ Functional specifications evolve alongside the application.
 
 Every change requires:
 
-* Business approval
-* Architecture review
-* Documentation update
-* Implementation update
-* Test update
+- Business approval
+- Architecture review
+- Documentation update
+- Implementation update
+- Test update
 
 Documentation changes should occur before implementation whenever possible.
 
@@ -404,15 +404,15 @@ Documentation changes should occur before implementation whenever possible.
 
 These documents are intended for:
 
-* Product Owners
-* Business Analysts
-* Solution Architects
-* UX Designers
-* Frontend Developers
-* Backend Developers
-* QA Engineers
-* DevOps Engineers
-* AI-assisted development tools
+- Product Owners
+- Business Analysts
+- Solution Architects
+- UX Designers
+- Frontend Developers
+- Backend Developers
+- QA Engineers
+- DevOps Engineers
+- AI-assisted development tools
 
 Each audience should be able to understand module behavior without referring to implementation code.
 
@@ -422,12 +422,12 @@ Each audience should be able to understand module behavior without referring to 
 
 No feature may be implemented unless:
 
-* Functional behavior is documented.
-* Business rules are identified.
-* Required permissions are defined.
-* Validation rules are documented.
-* User interactions are specified.
-* Acceptance criteria are established.
+- Functional behavior is documented.
+- Business rules are identified.
+- Required permissions are defined.
+- Validation rules are documented.
+- User interactions are specified.
+- Acceptance criteria are established.
 
 This ensures predictable and maintainable software development.
 

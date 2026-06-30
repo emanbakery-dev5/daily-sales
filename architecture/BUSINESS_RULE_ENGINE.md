@@ -24,13 +24,13 @@ Every business rule must exist in this document before it is implemented in code
 
 The Business Rule Engine exists to:
 
-* Centralize all business rules.
-* Prevent duplicate business logic.
-* Ensure consistent behavior across the application.
-* Simplify auditing.
-* Simplify testing.
-* Allow controlled evolution of business policies.
-* Support future configuration-driven rules.
+- Centralize all business rules.
+- Prevent duplicate business logic.
+- Ensure consistent behavior across the application.
+- Simplify auditing.
+- Simplify testing.
+- Allow controlled evolution of business policies.
+- Support future configuration-driven rules.
 
 ---
 
@@ -38,22 +38,22 @@ The Business Rule Engine exists to:
 
 Every business rule must be:
 
-* Explicit
-* Testable
-* Documented
-* Deterministic
-* Versioned
-* Traceable
-* Independent of UI
+- Explicit
+- Testable
+- Documented
+- Deterministic
+- Versioned
+- Traceable
+- Independent of UI
 
 Business rules never reside inside:
 
-* React Components
-* Pages
-* Layouts
-* API Routes
-* SQL Queries
-* Repositories
+- React Components
+- Pages
+- Layouts
+- API Routes
+- SQL Queries
+- Repositories
 
 They are evaluated within Domain Services and Workflows.
 
@@ -65,84 +65,84 @@ Business rules are classified into the following categories:
 
 ### Authentication Rules
 
-* Session timeout
-* Password policy
-* Login restrictions
-* Account lockout
+- Session timeout
+- Password policy
+- Login restrictions
+- Account lockout
 
 ---
 
 ### Authorization Rules
 
-* Role permissions
-* Feature permissions
-* Resource ownership
-* Administrative privileges
+- Role permissions
+- Feature permissions
+- Resource ownership
+- Administrative privileges
 
 ---
 
 ### Salesperson Rules
 
-* Active status
-* Credit limits
-* Outstanding balances
-* Dispatch eligibility
+- Active status
+- Credit limits
+- Outstanding balances
+- Dispatch eligibility
 
 ---
 
 ### Product Rules
 
-* Active products only
-* Valid pricing required
-* Product availability
+- Active products only
+- Valid pricing required
+- Product availability
 
 ---
 
 ### Pricing Rules
 
-* One active price version per salesperson and product.
-* Historical prices are immutable.
-* Future prices require an effective date.
-* Draft prices cannot be used in dispatches.
+- One active price version per salesperson and product.
+- Historical prices are immutable.
+- Future prices require an effective date.
+- Draft prices cannot be used in dispatches.
 
 ---
 
 ### Dispatch Rules
 
-* Dispatch requires an active salesperson.
-* Dispatch requires at least one product.
-* Quantities must be greater than zero.
-* Products must exist.
-* Prices must resolve successfully.
-* Dispatch numbers are unique.
-* Posted dispatches cannot be edited.
-* Cancelled dispatches cannot be reposted.
+- Dispatch requires an active salesperson.
+- Dispatch requires at least one product.
+- Quantities must be greater than zero.
+- Products must exist.
+- Prices must resolve successfully.
+- Dispatch numbers are unique.
+- Posted dispatches cannot be edited.
+- Cancelled dispatches cannot be reposted.
 
 ---
 
 ### Ledger Rules
 
-* Every financial movement creates a ledger entry.
-* Ledger entries are immutable.
-* Reversals create balancing entries.
-* Running balances are system-calculated only.
+- Every financial movement creates a ledger entry.
+- Ledger entries are immutable.
+- Reversals create balancing entries.
+- Running balances are system-calculated only.
 
 ---
 
 ### Payment Rules
 
-* Payment amount must be greater than zero.
-* Payments cannot exceed configurable limits without approval.
-* Payment reversals require elevated permission.
-* Every payment generates a receipt.
+- Payment amount must be greater than zero.
+- Payments cannot exceed configurable limits without approval.
+- Payment reversals require elevated permission.
+- Every payment generates a receipt.
 
 ---
 
 ### Reporting Rules
 
-* Reports are read-only.
-* Reports never modify data.
-* Exports reflect current authorization.
+- Reports are read-only.
+- Reports never modify data.
+- Exports reflect current authorization.
 
 ---
 
@@ -438,17 +438,17 @@ Every critical operation generates an audit entry.
 
 Examples:
 
-* Login
-* Logout
-* User Creation
-* User Update
-* Dispatch Creation
-* Dispatch Cancellation
-* Payment Recording
-* Payment Reversal
-* Price Update
-* Permission Change
-* System Configuration Change
+- Login
+- Logout
+- User Creation
+- User Update
+- Dispatch Creation
+- Dispatch Cancellation
+- Payment Recording
+- Payment Reversal
+- Price Update
+- Permission Change
+- System Configuration Change
 
 Audit entries are append-only.
 
@@ -508,12 +508,12 @@ Business rules evolve over time.
 
 Each rule has:
 
-* Rule Identifier
-* Version
-* Status
-* Effective Date
-* Description
-* Owner
+- Rule Identifier
+- Version
+- Status
+- Effective Date
+- Description
+- Owner
 
 Historical rule definitions remain documented for audit purposes.
 
@@ -525,13 +525,13 @@ Selected rules will become configurable through the System Settings module.
 
 Examples:
 
-* Session timeout
-* Credit warning threshold
-* Maximum payment without approval
-* WhatsApp enable/disable
-* Dispatch number format
-* Receipt footer
-* Default currency
+- Session timeout
+- Credit warning threshold
+- Maximum payment without approval
+- WhatsApp enable/disable
+- Dispatch number format
+- Receipt footer
+- Default currency
 
 Rules affecting financial integrity remain hard-coded and require software changes.
 
@@ -543,11 +543,11 @@ Every new business capability must identify and document its business rules befo
 
 Rule changes require:
 
-* Business approval
-* Architecture review
-* Documentation update
-* Test updates
-* Version increment
+- Business approval
+- Architecture review
+- Documentation update
+- Test updates
+- Version increment
 
 No implementation may contradict this document.
 

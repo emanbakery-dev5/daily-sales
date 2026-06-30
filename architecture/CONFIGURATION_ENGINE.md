@@ -22,14 +22,14 @@ The Configuration Engine provides a secure, versioned, and auditable mechanism f
 
 The Configuration Engine is designed to:
 
-* Centralize system configuration.
-* Eliminate hardcoded operational values.
-* Support future business expansion.
-* Maintain audit history for all configuration changes.
-* Allow safe runtime configuration updates.
-* Support feature toggles.
-* Improve operational flexibility.
-* Reduce unnecessary software deployments.
+- Centralize system configuration.
+- Eliminate hardcoded operational values.
+- Support future business expansion.
+- Maintain audit history for all configuration changes.
+- Allow safe runtime configuration updates.
+- Support feature toggles.
+- Improve operational flexibility.
+- Reduce unnecessary software deployments.
 
 ---
 
@@ -37,13 +37,13 @@ The Configuration Engine is designed to:
 
 Every configuration item must be:
 
-* Centralized
-* Typed
-* Versioned
-* Auditable
-* Permission Protected
-* Environment Aware
-* Backward Compatible
+- Centralized
+- Typed
+- Versioned
+- Auditable
+- Permission Protected
+- Environment Aware
+- Backward Compatible
 
 Configuration values are treated as business assets.
 
@@ -55,118 +55,118 @@ The system organizes configuration into logical domains.
 
 ### Company Settings
 
-* Company Name
-* Legal Name
-* Address
-* Phone Number
-* Email
-* Website
-* Logo
-* Tax Registration Number
-* Business Registration Number
+- Company Name
+- Legal Name
+- Address
+- Phone Number
+- Email
+- Website
+- Logo
+- Tax Registration Number
+- Business Registration Number
 
 ---
 
 ### Financial Settings
 
-* Currency
-* Currency Symbol
-* Decimal Precision
-* Tax Percentage
-* Default Payment Method
-* Credit Warning Threshold
-* Maximum Credit Limit
-* Maximum Cash Payment
-* Receipt Number Prefix
+- Currency
+- Currency Symbol
+- Decimal Precision
+- Tax Percentage
+- Default Payment Method
+- Credit Warning Threshold
+- Maximum Credit Limit
+- Maximum Cash Payment
+- Receipt Number Prefix
 
 ---
 
 ### Dispatch Settings
 
-* Dispatch Number Prefix
-* Starting Dispatch Number
-* Dispatch Number Padding
-* Default Dispatch Status
-* Allow Dispatch Editing
-* Allow Dispatch Cancellation
-* Maximum Dispatch Age for Editing
-* Auto Post Dispatch
+- Dispatch Number Prefix
+- Starting Dispatch Number
+- Dispatch Number Padding
+- Default Dispatch Status
+- Allow Dispatch Editing
+- Allow Dispatch Cancellation
+- Maximum Dispatch Age for Editing
+- Auto Post Dispatch
 
 ---
 
 ### Ledger Settings
 
-* Opening Balance Policy
-* Statement Date Format
-* Ledger Precision
-* Allow Manual Adjustments
-* Reversal Reason Requirement
+- Opening Balance Policy
+- Statement Date Format
+- Ledger Precision
+- Allow Manual Adjustments
+- Reversal Reason Requirement
 
 ---
 
 ### Pricing Settings
 
-* Default Pricing Strategy
-* Future Price Activation
-* Price Version Retention
-* Price Approval Requirement
+- Default Pricing Strategy
+- Future Price Activation
+- Price Version Retention
+- Price Approval Requirement
 
 ---
 
 ### Authentication Settings
 
-* Session Timeout
-* Password Minimum Length
-* Password Complexity
-* Maximum Login Attempts
-* Lockout Duration
-* Require Password Rotation
+- Session Timeout
+- Password Minimum Length
+- Password Complexity
+- Maximum Login Attempts
+- Lockout Duration
+- Require Password Rotation
 
 ---
 
 ### Notification Settings
 
-* Enable WhatsApp
-* Enable Email
-* Enable SMS (Future)
-* Retry Count
-* Retry Delay
-* Notification Queue Size
+- Enable WhatsApp
+- Enable Email
+- Enable SMS (Future)
+- Retry Count
+- Retry Delay
+- Notification Queue Size
 
 ---
 
 ### Printing Settings
 
-* Paper Size
-* Printer Width
-* Company Header
-* Receipt Footer
-* QR Code Display
-* Barcode Display
-* Signature Section
-* Print Preview Enabled
+- Paper Size
+- Printer Width
+- Company Header
+- Receipt Footer
+- QR Code Display
+- Barcode Display
+- Signature Section
+- Print Preview Enabled
 
 ---
 
 ### Reporting Settings
 
-* Default Date Range
-* Default Export Format
-* Report Logo
-* Include Company Header
-* Include Audit Metadata
+- Default Date Range
+- Default Export Format
+- Report Logo
+- Include Company Header
+- Include Audit Metadata
 
 ---
 
 ### User Interface Settings
 
-* Default Theme
-* Default Language
-* Sidebar State
-* Table Page Size
-* Date Format
-* Time Format
-* Time Zone
+- Default Theme
+- Default Language
+- Sidebar State
+- Table Page Size
+- Date Format
+- Time Format
+- Time Zone
 
 ---
 
@@ -176,14 +176,14 @@ Feature Flags allow controlled activation of functionality.
 
 Examples:
 
-* Inventory Module
-* Fleet Module
-* AI Assistant
-* Email Notifications
-* Push Notifications
-* Customer Portal
-* Mobile Synchronization
-* Warehouse Module
+- Inventory Module
+- Fleet Module
+- AI Assistant
+- Email Notifications
+- Push Notifications
+- Customer Portal
+- Mobile Synchronization
+- Warehouse Module
 
 Disabled features remain hidden and inaccessible.
 
@@ -195,19 +195,19 @@ Configuration differs by environment.
 
 Supported environments:
 
-* Development
-* Testing
-* Staging
-* Production
+- Development
+- Testing
+- Staging
+- Production
 
 Environment-specific values include:
 
-* API URLs
-* Supabase Project IDs
-* Storage Buckets
-* Third-Party API Keys
-* Logging Levels
-* Debug Mode
+- API URLs
+- Supabase Project IDs
+- Storage Buckets
+- Third-Party API Keys
+- Logging Levels
+- Debug Mode
 
 Sensitive configuration is never exposed to the client.
 
@@ -267,13 +267,13 @@ Configuration values are versioned.
 
 Each version includes:
 
-* Configuration Key
-* Version Number
-* Previous Value
-* New Value
-* Effective Date
-* Changed By
-* Change Reason
+- Configuration Key
+- Version Number
+- Previous Value
+- New Value
+- Effective Date
+- Changed By
+- Change Reason
 
 Previous versions are retained for audit and rollback purposes.
 
@@ -283,19 +283,19 @@ Previous versions are retained for audit and rollback purposes.
 
 Every configuration value must satisfy:
 
-* Data Type Validation
-* Required Field Validation
-* Range Validation
-* Format Validation
-* Dependency Validation
+- Data Type Validation
+- Required Field Validation
+- Range Validation
+- Format Validation
+- Dependency Validation
 
 Examples:
 
-* Session Timeout > 0
-* Credit Limit ≥ 0
-* Retry Count ≥ 0
-* Dispatch Prefix not empty
-* Currency follows ISO 4217
+- Session Timeout > 0
+- Credit Limit ≥ 0
+- Retry Count ≥ 0
+- Dispatch Prefix not empty
+- Currency follows ISO 4217
 
 Invalid configurations are rejected before persistence.
 
@@ -307,11 +307,11 @@ Configuration management is restricted to authorized roles.
 
 Protected actions include:
 
-* Create Configuration
-* Update Configuration
-* Activate Version
-* Rollback Version
-* Export Configuration
+- Create Configuration
+- Update Configuration
+- Activate Version
+- Rollback Version
+- Export Configuration
 
 Every action requires server-side authorization.
 
@@ -321,13 +321,13 @@ Every action requires server-side authorization.
 
 Every configuration change records:
 
-* Configuration Key
-* Old Value
-* New Value
-* User ID
-* Timestamp
-* Correlation ID
-* Reason for Change
+- Configuration Key
+- Old Value
+- New Value
+- User ID
+- Timestamp
+- Correlation ID
+- Reason for Change
 
 Audit records are immutable.
 
@@ -339,11 +339,11 @@ Frequently accessed configuration values may be cached.
 
 Examples:
 
-* Currency
-* Date Format
-* Company Information
-* Session Timeout
-* Active Feature Flags
+- Currency
+- Date Format
+- Company Information
+- Session Timeout
+- Active Feature Flags
 
 Cache invalidation occurs automatically after successful configuration updates.
 
@@ -367,12 +367,12 @@ Historical versions are never modified.
 
 Every new configurable behavior must:
 
-* Be documented.
-* Have a defined owner.
-* Specify validation rules.
-* Include default values.
-* Define security requirements.
-* Include audit coverage.
+- Be documented.
+- Have a defined owner.
+- Specify validation rules.
+- Include default values.
+- Define security requirements.
+- Include audit coverage.
 
 Configuration changes must never bypass the Configuration Engine.
 
@@ -382,16 +382,16 @@ Configuration changes must never bypass the Configuration Engine.
 
 The Configuration Engine is designed to support future capabilities, including:
 
-* Multi-Branch Configuration
-* Branch-Specific Pricing
-* Regional Tax Rules
-* Multi-Currency Support
-* Dynamic Workflow Configuration
-* AI Behavior Settings
-* Scheduled Configuration Activation
-* Customer-Specific Defaults
-* Warehouse Configuration
-* Fleet Configuration
+- Multi-Branch Configuration
+- Branch-Specific Pricing
+- Regional Tax Rules
+- Multi-Currency Support
+- Dynamic Workflow Configuration
+- AI Behavior Settings
+- Scheduled Configuration Activation
+- Customer-Specific Defaults
+- Warehouse Configuration
+- Fleet Configuration
 
 ---
 

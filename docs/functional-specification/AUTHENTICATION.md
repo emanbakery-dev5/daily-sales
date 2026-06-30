@@ -24,16 +24,16 @@ Only authenticated and authorized users may access protected resources.
 
 The Authentication module shall:
 
-* Authenticate registered users.
-* Prevent unauthorized access.
-* Support secure logout.
-* Support password recovery.
-* Enforce configurable session timeout.
-* Prevent brute-force attacks.
-* Record authentication audit events.
-* Integrate with Supabase Authentication.
-* Support future Multi-Factor Authentication (MFA).
-* Support future Single Sign-On (SSO).
+- Authenticate registered users.
+- Prevent unauthorized access.
+- Support secure logout.
+- Support password recovery.
+- Enforce configurable session timeout.
+- Prevent brute-force attacks.
+- Record authentication audit events.
+- Integrate with Supabase Authentication.
+- Support future Multi-Factor Authentication (MFA).
+- Support future Single Sign-On (SSO).
 
 ---
 
@@ -41,11 +41,11 @@ The Authentication module shall:
 
 The following roles use this module:
 
-* System Administrator
-* Operations Manager
-* Finance Officer
-* Sales Coordinator
-* Read-Only User
+- System Administrator
+- Operations Manager
+- Finance Officer
+- Sales Coordinator
+- Read-Only User
 
 Authentication behavior is identical for all users.
 
@@ -217,17 +217,17 @@ Allows registered users to authenticate and enter the application.
 
 The Login screen contains:
 
-* Company Logo
-* Application Name
-* Welcome Message
-* Email Input
-* Password Input
-* Show Password Toggle
-* Remember Me Checkbox (Future)
-* Login Button
-* Forgot Password Link
-* Application Version
-* Copyright Footer
+- Company Logo
+- Application Name
+- Welcome Message
+- Email Input
+- Password Input
+- Show Password Toggle
+- Remember Me Checkbox (Future)
+- Login Button
+- Forgot Password Link
+- Application Version
+- Copyright Footer
 
 No sidebar or top navigation is displayed.
 
@@ -255,10 +255,10 @@ EMA Bakery Distribution Management System
 
 Properties:
 
-* Required
-* Email format validation
-* Trim whitespace
-* Maximum 255 characters
+- Required
+- Email format validation
+- Trim whitespace
+- Maximum 255 characters
 
 Placeholder:
 
@@ -272,10 +272,10 @@ Enter your email address
 
 Properties:
 
-* Required
-* Hidden by default
-* Minimum password length enforced by backend policy
-* Supports visibility toggle
+- Required
+- Hidden by default
+- Minimum password length enforced by backend policy
+- Supports visibility toggle
 
 Placeholder:
 
@@ -291,14 +291,14 @@ Located inside the password field.
 
 States:
 
-* Hidden
-* Visible
+- Hidden
+- Visible
 
 Interaction:
 
-* Clicking the icon toggles visibility.
-* Does not clear the field.
-* Does not change cursor position.
+- Clicking the icon toggles visibility.
+- Does not clear the field.
+- Does not change cursor position.
 
 Keyboard accessible.
 
@@ -316,8 +316,8 @@ Sign In
 
 Enabled only when:
 
-* Email is not empty.
-* Password is not empty.
+- Email is not empty.
+- Password is not empty.
 
 Loading state:
 
@@ -347,10 +347,10 @@ No confirmation required.
 
 Rules:
 
-* Required.
-* Must be valid email format.
-* Trim leading/trailing spaces.
-* Maximum 255 characters.
+- Required.
+- Must be valid email format.
+- Trim leading/trailing spaces.
+- Maximum 255 characters.
 
 Examples:
 
@@ -368,10 +368,10 @@ Examples:
 
 Rules:
 
-* Required.
-* Cannot be empty.
-* Whitespace-only values rejected.
-* Validation occurs before authentication request.
+- Required.
+- Cannot be empty.
+- Whitespace-only values rejected.
+- Validation occurs before authentication request.
 
 ---
 
@@ -403,10 +403,10 @@ Escape
 
 While authentication is executing:
 
-* Inputs become disabled.
-* Button becomes disabled.
-* Loading spinner appears inside the Login button.
-* Multiple submissions are prevented.
+- Inputs become disabled.
+- Button becomes disabled.
+- Loading spinner appears inside the Login button.
+- Multiple submissions are prevented.
 
 The page remains interactive only after the request completes.
 
@@ -432,12 +432,12 @@ No intermediate blank screens should be displayed.
 
 Authentication may fail due to:
 
-* Invalid credentials
-* Locked account
-* Disabled account
-* Expired password (future)
-* Network failure
-* Authentication service unavailable
+- Invalid credentials
+- Locked account
+- Disabled account
+- Expired password (future)
+- Network failure
+- Authentication service unavailable
 
 The application shall never reveal which credential was incorrect.
 
@@ -455,12 +455,12 @@ This prevents username enumeration attacks.
 
 The Login screen shall:
 
-* Never store passwords in local storage.
-* Never log passwords.
-* Never expose authentication tokens.
-* Always communicate over HTTPS.
-* Prevent browser autofill where prohibited by policy.
-* Respect Supabase security policies.
+- Never store passwords in local storage.
+- Never log passwords.
+- Never expose authentication tokens.
+- Always communicate over HTTPS.
+- Prevent browser autofill where prohibited by policy.
+- Respect Supabase security policies.
 
 ---
 
@@ -484,11 +484,11 @@ Permission Load Failure
 
 Each audit event includes:
 
-* Timestamp
-* User ID (where available)
-* IP Address
-* Device Information
-* Correlation ID
+- Timestamp
+- User ID (where available)
+- IP Address
+- Device Information
+- Correlation ID
 
 ---
 
@@ -496,13 +496,13 @@ Each audit event includes:
 
 The Login feature is considered complete when:
 
-* Users can authenticate successfully.
-* Invalid credentials display a generic error.
-* Loading states prevent duplicate submissions.
-* Keyboard navigation functions correctly.
-* Authentication events are audited.
-* Successful login redirects to the Dashboard.
-* Security requirements are satisfied.
+- Users can authenticate successfully.
+- Invalid credentials display a generic error.
+- Loading states prevent duplicate submissions.
+- Keyboard navigation functions correctly.
+- Authentication events are audited.
+- Successful login redirects to the Dashboard.
+- Security requirements are satisfied.
 
 ## 16. Forgot Password Screen
 
@@ -526,13 +526,13 @@ The application never confirms whether an email address exists in the system.
 
 The screen contains:
 
-* Company Logo
-* Page Title
-* Instruction Text
-* Email Address Field
-* Send Reset Link Button
-* Back to Login Link
-* Footer
+- Company Logo
+- Page Title
+- Instruction Text
+- Email Address Field
+- Send Reset Link Button
+- Back to Login Link
+- Footer
 
 No sidebar or top navigation is displayed.
 
@@ -544,9 +544,9 @@ No sidebar or top navigation is displayed.
 
 Properties:
 
-* Required
-* Email format validation
-* Maximum 255 characters
+- Required
+- Email format validation
+- Maximum 255 characters
 
 Placeholder:
 
@@ -592,10 +592,10 @@ No confirmation dialog is displayed.
 
 Validation Rules:
 
-* Email is required.
-* Email must be valid.
-* Email is trimmed.
-* Maximum 255 characters.
+- Email is required.
+- Email must be valid.
+- Email is trimmed.
+- Maximum 255 characters.
 
 Invalid email displays:
 
@@ -609,9 +609,9 @@ Please enter a valid email address.
 
 After submission:
 
-* Loading indicator disappears.
-* Form becomes enabled.
-* Success notification appears.
+- Loading indicator disappears.
+- Form becomes enabled.
+- Success notification appears.
 
 Displayed message:
 
@@ -641,11 +641,11 @@ Invalid or expired links redirect to an error state.
 
 ### Components
 
-* New Password
-* Confirm Password
-* Password Visibility Toggle
-* Confirm Password Visibility Toggle
-* Reset Password Button
+- New Password
+- Confirm Password
+- Password Visibility Toggle
+- Confirm Password Visibility Toggle
+- Reset Password Button
 
 ---
 
@@ -657,9 +657,9 @@ Minimum length:
 
 Must include:
 
-* Uppercase letter
-* Lowercase letter
-* Number
+- Uppercase letter
+- Lowercase letter
+- Number
 
 Future enhancement:
 
@@ -702,8 +702,8 @@ Please sign in using your new password.
 
 Logout is available from:
 
-* User Menu
-* Profile Menu
+- User Menu
+- Profile Menu
 
 Keyboard shortcut:
 
@@ -757,13 +757,13 @@ Cancel
 
 Performs:
 
-* Session invalidation
-* Refresh token removal
-* Cached permission removal
-* Cached profile removal
-* React Query cache clear
-* Redirect to Login
-* Success toast
+- Session invalidation
+- Refresh token removal
+- Cached permission removal
+- Cached profile removal
+- React Query cache clear
+- Redirect to Login
+- Success toast
 
 ---
 
@@ -805,10 +805,10 @@ If the configured session timeout expires:
 
 Application immediately:
 
-* Invalidates session
-* Clears cached data
-* Clears permissions
-* Redirects to:
+- Invalidates session
+- Clears cached data
+- Clears permissions
+- Redirects to:
 
 ```text
 /session-expired
@@ -852,12 +852,12 @@ Immediately after authentication:
 
 Application loads:
 
-* User Profile
-* Role
-* Permissions
-* Navigation Menu
-* Feature Flags
-* System Configuration
+- User Profile
+- Role
+- Permissions
+- Navigation Menu
+- Feature Flags
+- System Configuration
 
 Navigation is rendered only after permissions are resolved.
 
@@ -873,9 +873,9 @@ Navigation is rendered only after permissions are resolved.
 
 Displayed when:
 
-* User lacks permission.
-* Role is insufficient.
-* Protected resource denied.
+- User lacks permission.
+- Role is insufficient.
+- Protected resource denied.
 
 ---
 
@@ -919,8 +919,8 @@ The page you are looking for cannot be found.
 
 Buttons
 
-* Go to Dashboard
-* Go Back
+- Go to Dashboard
+- Go Back
 
 ---
 
@@ -962,13 +962,13 @@ Authentication screens comply with WCAG 2.1 AA.
 
 Requirements include:
 
-* Keyboard-only navigation
-* Visible focus indicators
-* Screen reader labels
-* Semantic HTML
-* Accessible form validation
-* Color-independent status messages
-* Minimum contrast ratios
+- Keyboard-only navigation
+- Visible focus indicators
+- Screen reader labels
+- Semantic HTML
+- Accessible form validation
+- Color-independent status messages
+- Minimum contrast ratios
 
 ---
 
@@ -992,10 +992,10 @@ Authentication forms remain fully usable on smaller screens.
 
 Supported browsers:
 
-* Chrome
-* Microsoft Edge
-* Firefox
-* Safari
+- Chrome
+- Microsoft Edge
+- Firefox
+- Safari
 
 Latest two major versions.
 
@@ -1005,16 +1005,16 @@ Latest two major versions.
 
 Authentication module records:
 
-* Successful Login
-* Failed Login
-* Logout
-* Password Reset Requested
-* Password Reset Completed
-* Session Expired
-* Session Refreshed
-* Unauthorized Access
-* Account Locked
-* Permission Loading Failure
+- Successful Login
+- Failed Login
+- Logout
+- Password Reset Requested
+- Password Reset Completed
+- Session Expired
+- Session Refreshed
+- Unauthorized Access
+- Account Locked
+- Permission Loading Failure
 
 Audit events are immutable.
 
@@ -1038,18 +1038,18 @@ Audit events are immutable.
 
 The Authentication module is considered complete when:
 
-* Users can successfully authenticate.
-* Invalid credentials are handled securely.
-* Password reset workflow functions correctly.
-* Logout requires confirmation.
-* Session expiration redirects correctly.
-* Permissions load before protected routes render.
-* Unauthorized users cannot access restricted pages.
-* All authentication actions generate audit records.
-* Accessibility requirements are satisfied.
-* Responsive layouts function correctly across supported devices.
-* No sensitive information is exposed to the client.
-* Security requirements defined in SECURITY_MODEL.md are enforced.
+- Users can successfully authenticate.
+- Invalid credentials are handled securely.
+- Password reset workflow functions correctly.
+- Logout requires confirmation.
+- Session expiration redirects correctly.
+- Permissions load before protected routes render.
+- Unauthorized users cannot access restricted pages.
+- All authentication actions generate audit records.
+- Accessibility requirements are satisfied.
+- Responsive layouts function correctly across supported devices.
+- No sensitive information is exposed to the client.
+- Security requirements defined in SECURITY_MODEL.md are enforced.
 
 ---
 
@@ -1057,12 +1057,12 @@ The Authentication module is considered complete when:
 
 This module is governed by:
 
-* `/architecture/SECURITY_MODEL.md`
-* `/architecture/BUSINESS_RULE_ENGINE.md`
-* `/architecture/WORKFLOW_ENGINE.md`
-* `/architecture/CQRS.md`
-* `/architecture/DOMAIN_MODEL.md`
-* `/docs/SYSTEM_REQUIREMENTS_SPECIFICATION.md`
+- `/architecture/SECURITY_MODEL.md`
+- `/architecture/BUSINESS_RULE_ENGINE.md`
+- `/architecture/WORKFLOW_ENGINE.md`
+- `/architecture/CQRS.md`
+- `/architecture/DOMAIN_MODEL.md`
+- `/docs/SYSTEM_REQUIREMENTS_SPECIFICATION.md`
 
 ---
 

@@ -12,7 +12,7 @@
 
 This document defines the implementation roadmap for the EMA Bakery Distribution Management System.
 
-Unlike the functional specifications, which describe *what* the system must do, this roadmap defines *how the project will be built*, one task at a time.
+Unlike the functional specifications, which describe _what_ the system must do, this roadmap defines _how the project will be built_, one task at a time.
 
 Each task should be completed, tested, committed to Git, and verified before moving to the next task.
 
@@ -739,12 +739,12 @@ A task is considered complete only if:
 
 ## 7. Progress Tracking
 
-| Status        | Meaning                     |
-| ------------- | --------------------------- |
-| ☐ Not Started | Task has not begun          |
+| Status         | Meaning                     |
+| -------------- | --------------------------- |
+| ☐ Not Started  | Task has not begun          |
 | ⏳ In Progress | Currently being implemented |
 | ✅ Completed   | Finished and verified       |
-| ⚠ Blocked     | Waiting on dependency       |
+| ⚠ Blocked      | Waiting on dependency       |
 
 ---
 

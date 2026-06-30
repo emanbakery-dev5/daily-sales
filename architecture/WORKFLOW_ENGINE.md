@@ -24,18 +24,18 @@ Pages, components, Server Actions, Edge Functions, and services **must never** b
 
 The Workflow Engine exists to achieve the following goals:
 
-* Centralize business execution.
-* Standardize all business operations.
-* Prevent duplicated business logic.
-* Guarantee audit logging.
-* Guarantee permission validation.
-* Guarantee business rule validation.
-* Guarantee transactional consistency.
-* Provide deterministic execution.
-* Simplify testing.
-* Simplify debugging.
-* Improve maintainability.
-* Support future automation.
+- Centralize business execution.
+- Standardize all business operations.
+- Prevent duplicated business logic.
+- Guarantee audit logging.
+- Guarantee permission validation.
+- Guarantee business rule validation.
+- Guarantee transactional consistency.
+- Provide deterministic execution.
+- Simplify testing.
+- Simplify debugging.
+- Improve maintainability.
+- Support future automation.
 
 ---
 
@@ -149,100 +149,100 @@ No workflow may alter this execution order without documented architectural appr
 
 ### Authentication Workflows
 
-* Login
-* Logout
-* Refresh Session
-* Change Password
-* Reset Password
-* Verify Session
+- Login
+- Logout
+- Refresh Session
+- Change Password
+- Reset Password
+- Verify Session
 
 ---
 
 ### User Administration Workflows
 
-* Create User
-* Update User
-* Disable User
-* Enable User
-* Assign Role
-* Remove Role
+- Create User
+- Update User
+- Disable User
+- Enable User
+- Assign Role
+- Remove Role
 
 ---
 
 ### Salesperson Workflows
 
-* Create Salesperson
-* Update Salesperson
-* Freeze Salesperson
-* Activate Salesperson
-* Update Credit Limit
-* Generate Statement
+- Create Salesperson
+- Update Salesperson
+- Freeze Salesperson
+- Activate Salesperson
+- Update Credit Limit
+- Generate Statement
 
 ---
 
 ### Product Workflows
 
-* Create Product
-* Update Product
-* Archive Product
-* Restore Product
+- Create Product
+- Update Product
+- Archive Product
+- Restore Product
 
 ---
 
 ### Pricing Workflows
 
-* Create Price Version
-* Activate Price Version
-* Bulk Price Update
-* Schedule Price Update
+- Create Price Version
+- Activate Price Version
+- Bulk Price Update
+- Schedule Price Update
 
 ---
 
 ### Dispatch Workflows
 
-* Create Dispatch
-* Edit Dispatch
-* Post Dispatch
-* Cancel Dispatch
-* Print Dispatch
-* Reprint Dispatch
-* Generate Dispatch PDF
+- Create Dispatch
+- Edit Dispatch
+- Post Dispatch
+- Cancel Dispatch
+- Print Dispatch
+- Reprint Dispatch
+- Generate Dispatch PDF
 
 ---
 
 ### Ledger Workflows
 
-* Create Ledger Entry
-* Reverse Ledger Entry
-* Recalculate Ledger
-* Generate Statement
+- Create Ledger Entry
+- Reverse Ledger Entry
+- Recalculate Ledger
+- Generate Statement
 
 ---
 
 ### Payment Workflows
 
-* Record Payment
-* Reverse Payment
-* Allocate Payment
-* Generate Receipt
+- Record Payment
+- Reverse Payment
+- Allocate Payment
+- Generate Receipt
 
 ---
 
 ### Reporting Workflows
 
-* Generate Report
-* Export PDF
-* Export Excel
-* Schedule Report
+- Generate Report
+- Export PDF
+- Export Excel
+- Schedule Report
 
 ---
 
 ### Notification Workflows
 
-* Send WhatsApp
-* Retry WhatsApp
-* Send Email (Future)
-* Send Push Notification (Future)
+- Send WhatsApp
+- Retry WhatsApp
+- Send Email (Future)
+- Send Push Notification (Future)
 
 ---
 
@@ -530,13 +530,13 @@ Every workflow returns a standardized result object.
 
 Possible states:
 
-* Success
-* Validation Failure
-* Authorization Failure
-* Business Rule Failure
-* Infrastructure Failure
-* External Integration Failure
-* Unexpected Failure
+- Success
+- Validation Failure
+- Authorization Failure
+- Business Rule Failure
+- Infrastructure Failure
+- External Integration Failure
+- Unexpected Failure
 
 Unexpected failures are automatically logged with a Correlation ID.
 
@@ -548,10 +548,10 @@ Certain operations require compensating actions instead of deletion.
 
 Examples:
 
-* Payment reversal creates a reversing ledger entry.
-* Dispatch cancellation creates reversing financial transactions.
-* Price changes create a new version.
-* Permission changes create a new audit record.
+- Payment reversal creates a reversing ledger entry.
+- Dispatch cancellation creates reversing financial transactions.
+- Price changes create a new version.
+- Permission changes create a new audit record.
 
 Data is never silently overwritten.
 
@@ -561,10 +561,10 @@ Data is never silently overwritten.
 
 Retryable operations include:
 
-* WhatsApp delivery
-* Email delivery
-* Report generation
-* External API calls
+- WhatsApp delivery
+- Email delivery
+- Report generation
+- External API calls
 
 Retries use exponential backoff.
 
@@ -578,11 +578,11 @@ Every workflow has a maximum execution time.
 
 Recommended defaults:
 
-* Login: 5 seconds
-* Dispatch: 10 seconds
-* Payment: 10 seconds
-* Reports: 60 seconds
-* Notifications: 30 seconds
+- Login: 5 seconds
+- Dispatch: 10 seconds
+- Payment: 10 seconds
+- Reports: 60 seconds
+- Notifications: 30 seconds
 
 Timeouts are configurable through system settings.
 
@@ -592,17 +592,17 @@ Timeouts are configurable through system settings.
 
 Every workflow execution records:
 
-* Workflow Name
-* Workflow ID
-* Correlation ID
-* User ID
-* Execution Start Time
-* Execution End Time
-* Duration
-* Success/Failure
-* Error Code
-* Device Information
-* IP Address
+- Workflow Name
+- Workflow ID
+- Correlation ID
+- User ID
+- Execution Start Time
+- Execution End Time
+- Duration
+- Success/Failure
+- Error Code
+- Device Information
+- IP Address
 
 These metrics support monitoring, diagnostics, and performance optimization.
 
@@ -616,10 +616,10 @@ Workflows are version-controlled.
 
 Changes to existing workflows require:
 
-* Architecture review
-* Documentation update
-* Test updates
-* Audit validation
+- Architecture review
+- Documentation update
+- Test updates
+- Audit validation
 
 No production feature may bypass the Workflow Engine.
 

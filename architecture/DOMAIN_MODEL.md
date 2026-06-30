@@ -26,12 +26,12 @@ Business capabilities are divided into bounded contexts.
 
 Each bounded context owns:
 
-* Its business rules
-* Its data
-* Its workflows
-* Its services
-* Its repositories
-* Its events
+- Its business rules
+- Its data
+- Its workflows
+- Its services
+- Its repositories
+- Its events
 
 No domain directly manipulates another domain's internal state.
 
@@ -43,20 +43,20 @@ Communication occurs through published events or approved service contracts.
 
 The platform is composed of the following domains:
 
-* Authentication
-* User Administration
-* Role & Permission Management
-* Salesperson Management
-* Product Management
-* Product Category Management
-* Pricing Management
-* Dispatch Management
-* Ledger Management
-* Payment Management
-* Reporting
-* Notification
-* Audit
-* System Configuration
+- Authentication
+- User Administration
+- Role & Permission Management
+- Salesperson Management
+- Product Management
+- Product Category Management
+- Pricing Management
+- Dispatch Management
+- Ledger Management
+- Payment Management
+- Reporting
+- Notification
+- Audit
+- System Configuration
 
 Each domain has a clearly defined ownership boundary.
 
@@ -72,12 +72,12 @@ Only the Aggregate Root may be modified directly.
 
 Aggregate Root:
 
-* User Session
+- User Session
 
 Entities:
 
-* Session
-* Login History
+- Session
+- Login History
 
 ---
 
@@ -85,13 +85,13 @@ Entities:
 
 Aggregate Root:
 
-* User
+- User
 
 Entities:
 
-* User Profile
-* User Role Assignment
-* Permission Assignment
+- User Profile
+- User Role Assignment
+- Permission Assignment
 
 ---
 
@@ -99,19 +99,19 @@ Entities:
 
 Aggregate Root:
 
-* Salesperson
+- Salesperson
 
 Entities:
 
-* Contact Information
-* Credit Profile
-* Salesperson Status
+- Contact Information
+- Credit Profile
+- Salesperson Status
 
 Value Objects:
 
-* Address
-* Phone Number
-* Email Address
+- Address
+- Phone Number
+- Email Address
 
 ---
 
@@ -119,17 +119,17 @@ Value Objects:
 
 Aggregate Root:
 
-* Product
+- Product
 
 Entities:
 
-* Product Category
-* Product Status
+- Product Category
+- Product Status
 
 Value Objects:
 
-* SKU
-* Unit of Measure
+- SKU
+- Unit of Measure
 
 ---
 
@@ -137,16 +137,16 @@ Value Objects:
 
 Aggregate Root:
 
-* Price Version
+- Price Version
 
 Entities:
 
-* Price Item
+- Price Item
 
 Value Objects:
 
-* Money
-* Effective Date
+- Money
+- Effective Date
 
 ---
 
@@ -154,18 +154,18 @@ Value Objects:
 
 Aggregate Root:
 
-* Dispatch
+- Dispatch
 
 Entities:
 
-* Dispatch Item
+- Dispatch Item
 
 Value Objects:
 
-* Quantity
-* Unit Price
-* Line Total
-* Dispatch Number
+- Quantity
+- Unit Price
+- Line Total
+- Dispatch Number
 
 ---
 
@@ -173,17 +173,17 @@ Value Objects:
 
 Aggregate Root:
 
-* Ledger Account
+- Ledger Account
 
 Entities:
 
-* Ledger Entry
+- Ledger Entry
 
 Value Objects:
 
-* Debit
-* Credit
-* Balance
+- Debit
+- Credit
+- Balance
 
 ---
 
@@ -191,17 +191,17 @@ Value Objects:
 
 Aggregate Root:
 
-* Payment
+- Payment
 
 Entities:
 
-* Payment Allocation
-* Receipt
+- Payment Allocation
+- Receipt
 
 Value Objects:
 
-* Payment Amount
-* Payment Method
+- Payment Amount
+- Payment Method
 
 ---
 
@@ -209,12 +209,12 @@ Value Objects:
 
 Aggregate Root:
 
-* Configuration Set
+- Configuration Set
 
 Entities:
 
-* Configuration Item
-* Configuration Version
+- Configuration Item
+- Configuration Version
 
 ---
 
@@ -330,16 +330,16 @@ Value Objects are immutable and have no identity.
 
 Examples include:
 
-* Money
-* Address
-* Quantity
-* Weight
-* Email Address
-* Phone Number
-* Date Range
-* Credit Limit
-* Dispatch Number
-* Receipt Number
+- Money
+- Address
+- Quantity
+- Weight
+- Email Address
+- Phone Number
+- Date Range
+- Credit Limit
+- Dispatch Number
+- Receipt Number
 
 Value Objects are compared by value rather than identity.
 
@@ -349,16 +349,16 @@ Value Objects are compared by value rather than identity.
 
 The principal relationships are:
 
-* A User may manage many Salespersons.
-* A Salesperson has many Dispatches.
-* A Dispatch contains many Dispatch Items.
-* A Product belongs to one Category.
-* A Product has many Price Versions.
-* A Salesperson has many Ledger Entries.
-* A Salesperson has many Payments.
-* A Payment may allocate to one or more Ledger Entries.
-* Configuration Sets contain many Configuration Items.
-* Audit Entries reference every business domain.
+- A User may manage many Salespersons.
+- A Salesperson has many Dispatches.
+- A Dispatch contains many Dispatch Items.
+- A Product belongs to one Category.
+- A Product has many Price Versions.
+- A Salesperson has many Ledger Entries.
+- A Salesperson has many Payments.
+- A Payment may allocate to one or more Ledger Entries.
+- Configuration Sets contain many Configuration Items.
+- Audit Entries reference every business domain.
 
 Relationships are enforced through foreign keys and domain services.
 
@@ -372,37 +372,37 @@ Examples:
 
 Authentication owns:
 
-* Sessions
-* Login History
+- Sessions
+- Login History
 
 User Administration owns:
 
-* Users
-* Roles
-* Permissions
+- Users
+- Roles
+- Permissions
 
 Salesperson owns:
 
-* Customer Profile
-* Credit Profile
+- Customer Profile
+- Credit Profile
 
 Dispatch owns:
 
-* Dispatch Header
-* Dispatch Items
+- Dispatch Header
+- Dispatch Items
 
 Ledger owns:
 
-* Financial History
+- Financial History
 
 Payment owns:
 
-* Receipts
-* Payment Allocations
+- Receipts
+- Payment Allocations
 
 Audit owns:
 
-* Audit Entries
+- Audit Entries
 
 Ownership boundaries prevent unintended coupling.
 
@@ -414,39 +414,39 @@ The following invariants must always hold true.
 
 ### Dispatch
 
-* Must reference an active Salesperson.
-* Must contain at least one Dispatch Item.
-* Must use active pricing.
-* Totals are system-calculated.
+- Must reference an active Salesperson.
+- Must contain at least one Dispatch Item.
+- Must use active pricing.
+- Totals are system-calculated.
 
 ---
 
 ### Pricing
 
-* Only one active Price Version exists per Product/Salesperson combination.
-* Historical prices remain immutable.
+- Only one active Price Version exists per Product/Salesperson combination.
+- Historical prices remain immutable.
 
 ---
 
 ### Ledger
 
-* Balance is calculated from transactions.
-* Ledger Entries are immutable.
+- Balance is calculated from transactions.
+- Ledger Entries are immutable.
 
 ---
 
 ### Payment
 
-* Payment Amount must be positive.
-* Reversals create compensating entries.
+- Payment Amount must be positive.
+- Reversals create compensating entries.
 
 ---
 
 ### User
 
-* Username is unique.
-* Email address is unique.
-* Roles determine permissions.
+- Username is unique.
+- Email address is unique.
+- Roles determine permissions.
 
 Violating an invariant results in command rejection.
 
@@ -460,47 +460,47 @@ Examples:
 
 Authentication
 
-* UserLoggedIn
-* UserLoggedOut
+- UserLoggedIn
+- UserLoggedOut
 
 Salesperson
 
-* SalespersonCreated
-* SalespersonFrozen
+- SalespersonCreated
+- SalespersonFrozen
 
 Product
 
-* ProductCreated
-* ProductArchived
+- ProductCreated
+- ProductArchived
 
 Pricing
 
-* PriceActivated
-* PriceExpired
+- PriceActivated
+- PriceExpired
 
 Dispatch
 
-* DispatchCreated
-* DispatchPosted
-* DispatchCancelled
+- DispatchCreated
+- DispatchPosted
+- DispatchCancelled
 
 Ledger
 
-* LedgerEntryCreated
-* LedgerEntryReversed
+- LedgerEntryCreated
+- LedgerEntryReversed
 
 Payment
 
-* PaymentReceived
-* PaymentReversed
+- PaymentReceived
+- PaymentReversed
 
 Configuration
 
-* ConfigurationUpdated
+- ConfigurationUpdated
 
 Audit
 
-* AuditEntryCreated
+- AuditEntryCreated
 
 Events communicate facts across domains.
 
@@ -512,13 +512,13 @@ Domain Services encapsulate business operations that do not naturally belong to 
 
 Examples:
 
-* Credit Validation Service
-* Pricing Resolution Service
-* Dispatch Calculation Service
-* Ledger Posting Service
-* Payment Allocation Service
-* Statement Generation Service
-* Report Generation Service
+- Credit Validation Service
+- Pricing Resolution Service
+- Dispatch Calculation Service
+- Ledger Posting Service
+- Payment Allocation Service
+- Statement Generation Service
+- Report Generation Service
 
 Services remain stateless and reusable.
 
@@ -532,12 +532,12 @@ Repositories are responsible only for persistence.
 
 Responsibilities include:
 
-* Create
-* Read
-* Update (where permitted)
-* Soft Delete (where permitted)
-* Search
-* Pagination
+- Create
+- Read
+- Update (where permitted)
+- Soft Delete (where permitted)
+- Search
+- Pagination
 
 Repositories never contain business rules.
 
@@ -549,16 +549,16 @@ The model is designed to support future expansion without structural redesign.
 
 Future domains may include:
 
-* Inventory Management
-* Warehouse Management
-* Fleet Management
-* Route Planning
-* Manufacturing
-* Procurement
-* Supplier Management
-* Customer Self-Service Portal
-* AI Forecasting
-* Business Intelligence
+- Inventory Management
+- Warehouse Management
+- Fleet Management
+- Route Planning
+- Manufacturing
+- Procurement
+- Supplier Management
+- Customer Self-Service Portal
+- AI Forecasting
+- Business Intelligence
 
 These domains integrate through events while respecting existing ownership boundaries.
 
@@ -568,12 +568,12 @@ These domains integrate through events while respecting existing ownership bound
 
 Changes to the domain model require:
 
-* Business approval
-* Architecture review
-* Documentation update
-* Database review
-* Migration planning
-* Test updates
+- Business approval
+- Architecture review
+- Documentation update
+- Database review
+- Migration planning
+- Test updates
 
 The Domain Model must remain synchronized with the database schema and business rules.
 

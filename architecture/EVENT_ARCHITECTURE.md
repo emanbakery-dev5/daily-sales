@@ -30,13 +30,13 @@ Each domain owns its business logic but communicates through published events.
 
 Benefits include:
 
-* Loose coupling
-* Independent domain evolution
-* Easier feature expansion
-* Simplified testing
-* Better auditability
-* Real-time processing
-* Future microservice readiness
+- Loose coupling
+- Independent domain evolution
+- Easier feature expansion
+- Simplified testing
+- Better auditability
+- Real-time processing
+- Future microservice readiness
 
 No domain should directly invoke another domain's internal business logic unless explicitly required.
 
@@ -90,17 +90,17 @@ Events are published **only after** the database transaction has been successful
 
 Every event must contain the following metadata:
 
-* Event ID (UUID)
-* Event Name
-* Event Version
-* Timestamp (UTC)
-* Correlation ID
-* User ID
-* Source Module
-* Entity Type
-* Entity ID
-* Payload
-* Metadata
+- Event ID (UUID)
+- Event Name
+- Event Version
+- Timestamp (UTC)
+- Correlation ID
+- User ID
+- Source Module
+- Entity Type
+- Entity ID
+- Payload
+- Metadata
 
 Example:
 
@@ -127,20 +127,20 @@ Events use the **Past Tense** because they describe completed facts.
 
 Correct examples:
 
-* UserCreated
-* UserUpdated
-* UserLoggedIn
-* DispatchCreated
-* DispatchCancelled
-* PaymentReceived
-* LedgerEntryCreated
-* PriceUpdated
+- UserCreated
+- UserUpdated
+- UserLoggedIn
+- DispatchCreated
+- DispatchCancelled
+- PaymentReceived
+- LedgerEntryCreated
+- PriceUpdated
 
 Incorrect examples:
 
-* CreateDispatch
-* UpdatePrice
-* DeleteUser
+- CreateDispatch
+- UpdatePrice
+- DeleteUser
 
 Those are commands, not events.
 
@@ -150,104 +150,104 @@ Those are commands, not events.
 
 ### Authentication Events
 
-* UserLoggedIn
-* UserLoggedOut
-* SessionExpired
-* PasswordChanged
-* PasswordResetRequested
-* PasswordResetCompleted
+- UserLoggedIn
+- UserLoggedOut
+- SessionExpired
+- PasswordChanged
+- PasswordResetRequested
+- PasswordResetCompleted
 
 ---
 
 ### User Administration Events
 
-* UserCreated
-* UserUpdated
-* UserActivated
-* UserDeactivated
-* RoleAssigned
-* RoleRemoved
-* PermissionUpdated
+- UserCreated
+- UserUpdated
+- UserActivated
+- UserDeactivated
+- RoleAssigned
+- RoleRemoved
+- PermissionUpdated
 
 ---
 
 ### Salesperson Events
 
-* SalespersonCreated
-* SalespersonUpdated
-* SalespersonActivated
-* SalespersonFrozen
-* CreditLimitUpdated
+- SalespersonCreated
+- SalespersonUpdated
+- SalespersonActivated
+- SalespersonFrozen
+- CreditLimitUpdated
 
 ---
 
 ### Product Events
 
-* ProductCreated
-* ProductUpdated
-* ProductArchived
-* ProductRestored
-* ProductCategoryChanged
+- ProductCreated
+- ProductUpdated
+- ProductArchived
+- ProductRestored
+- ProductCategoryChanged
 
 ---
 
 ### Pricing Events
 
-* PriceCreated
-* PriceUpdated
-* PriceActivated
-* PriceExpired
-* BulkPriceUpdated
+- PriceCreated
+- PriceUpdated
+- PriceActivated
+- PriceExpired
+- BulkPriceUpdated
 
 ---
 
 ### Dispatch Events
 
-* DispatchCreated
-* DispatchUpdated
-* DispatchPosted
-* DispatchPrinted
-* DispatchCancelled
-* DispatchReprinted
+- DispatchCreated
+- DispatchUpdated
+- DispatchPosted
+- DispatchPrinted
+- DispatchCancelled
+- DispatchReprinted
 
 ---
 
 ### Ledger Events
 
-* LedgerEntryCreated
-* LedgerEntryReversed
-* LedgerRecalculated
+- LedgerEntryCreated
+- LedgerEntryReversed
+- LedgerRecalculated
 
 ---
 
 ### Payment Events
 
-* PaymentReceived
-* PaymentAllocated
-* PaymentReversed
-* ReceiptGenerated
+- PaymentReceived
+- PaymentAllocated
+- PaymentReversed
+- ReceiptGenerated
 
 ---
 
 ### Notification Events
 
-* NotificationQueued
-* NotificationDelivered
-* NotificationFailed
+- NotificationQueued
+- NotificationDelivered
+- NotificationFailed
 
 ---
 
 ### Reporting Events
 
-* ReportGenerated
-* ReportExported
-* ReportScheduled
+- ReportGenerated
+- ReportExported
+- ReportScheduled
 
 ---
 
 ### Audit Events
 
-* AuditEntryCreated
+- AuditEntryCreated
 
 ---
 
@@ -261,11 +261,11 @@ Example:
 
 Subscribers:
 
-* Ledger Domain
-* Notification Domain
-* Reporting Domain
-* Audit Domain
-* Analytics Domain
+- Ledger Domain
+- Notification Domain
+- Reporting Domain
+- Audit Domain
+- Analytics Domain
 
 ---
 
@@ -273,10 +273,10 @@ Subscribers:
 
 Subscribers:
 
-* Ledger Domain
-* Reporting Domain
-* Audit Domain
-* Notification Domain
+- Ledger Domain
+- Reporting Domain
+- Audit Domain
+- Notification Domain
 
 ---
 
@@ -284,9 +284,9 @@ Subscribers:
 
 Subscribers:
 
-* Dispatch Domain
-* Reporting Domain
-* Audit Domain
+- Dispatch Domain
+- Reporting Domain
+- Audit Domain
 
 ---
 
@@ -294,8 +294,8 @@ Subscribers:
 
 Subscribers:
 
-* Audit Domain
-* Monitoring Domain
+- Audit Domain
+- Monitoring Domain
 
 ---
 
@@ -303,12 +303,12 @@ Subscribers:
 
 Every subscriber must:
 
-* Be idempotent.
-* Handle duplicate delivery.
-* Never assume execution order unless guaranteed.
-* Never modify the published event.
-* Fail independently.
-* Log execution status.
+- Be idempotent.
+- Handle duplicate delivery.
+- Never assume execution order unless guaranteed.
+- Never modify the published event.
+- Fail independently.
+- Log execution status.
 
 One failing subscriber must never prevent other subscribers from processing the same event.
 
@@ -318,10 +318,10 @@ One failing subscriber must never prevent other subscribers from processing the 
 
 Retryable events include:
 
-* WhatsApp delivery
-* Email delivery
-* Report generation
-* External API integrations
+- WhatsApp delivery
+- Email delivery
+- Report generation
+- External API integrations
 
 Retries use exponential backoff.
 
@@ -337,14 +337,14 @@ Events are immutable.
 
 If an event payload changes incompatibly:
 
-* Increment the event version.
-* Preserve previous versions for backward compatibility.
-* Consumers must explicitly support the version they process.
+- Increment the event version.
+- Preserve previous versions for backward compatibility.
+- Consumers must explicitly support the version they process.
 
 Example:
 
-* DispatchCreated v1
-* DispatchCreated v2
+- DispatchCreated v1
+- DispatchCreated v2
 
 ---
 
@@ -364,11 +364,11 @@ Cross-domain ordering must not be assumed unless explicitly documented.
 
 Subscriber failures are classified as:
 
-* Validation Error
-* Business Rule Error
-* Infrastructure Error
-* External Integration Error
-* Unknown Error
+- Validation Error
+- Business Rule Error
+- Infrastructure Error
+- External Integration Error
+- Unknown Error
 
 Failures are logged with the originating Correlation ID.
 
@@ -382,16 +382,16 @@ Non-retryable failures are recorded and surfaced to monitoring.
 
 Every event publication records:
 
-* Event Name
-* Event ID
-* Correlation ID
-* Publisher
-* Subscriber
-* Execution Start
-* Execution End
-* Duration
-* Status
-* Retry Count
+- Event Name
+- Event ID
+- Correlation ID
+- Publisher
+- Subscriber
+- Execution Start
+- Execution End
+- Duration
+- Status
+- Retry Count
 
 These metrics enable complete tracing of business operations.
 
@@ -401,11 +401,11 @@ These metrics enable complete tracing of business operations.
 
 New events require:
 
-* Architecture review
-* Documentation update
-* Subscriber review
-* Version assessment
-* Test coverage
+- Architecture review
+- Documentation update
+- Subscriber review
+- Version assessment
+- Test coverage
 
 Events may never be deleted.
 
