@@ -1,0 +1,1518 @@
+# Reporting Functional Specification
+
+**Project:** EMA Bakery Distribution Management System (EMA-BDMS)
+
+**Module:** Reporting
+
+**Version:** 1.0.0
+
+**Status:** Approved
+
+---
+
+## 1. Purpose
+
+The Reporting module provides operational, financial, and management reporting capabilities across the EMA Bakery Distribution Management System.
+
+It consolidates data from all business modules into accurate, real-time, and historical reports that support operational monitoring, financial analysis, and strategic decision-making.
+
+Reports are generated from immutable business data and are available only to authorized users based on their assigned permissions.
+
+---
+
+## 2. Business Objectives
+
+The Reporting module shall:
+
+- Provide real-time operational reports.
+- Generate financial reports from posted ledger data.
+- Produce salesperson performance reports.
+- Monitor product movement.
+- Track customer balances and collections.
+- Support report exports.
+- Maintain report generation audit history.
+- Support configurable report filters.
+- Deliver consistent data across all reporting views.
+
+---
+
+## 3. User Roles & Permissions
+
+| Role                 | Access                          |
+| -------------------- | ------------------------------- |
+| System Administrator | Full Access                     |
+| Finance Officer      | Financial & Operational Reports |
+| Operations Manager   | Operational Reports             |
+| Sales Coordinator    | Sales & Dispatch Reports        |
+| Salesperson          | Assigned Territory Reports      |
+| Read-Only User       | View Only (Assigned Reports)    |
+
+Permission enforcement is performed on the server.
+
+Only users with **Report.View** permission may access this module.
+
+---
+
+## 4. Routes
+
+Reporting Dashboard
+
+```text
+/reports
+```
+
+Operational Reports
+
+```text
+/reports/operations
+```
+
+Financial Reports
+
+```text
+/reports/financial
+```
+
+Sales Reports
+
+```text
+/reports/sales
+```
+
+Customer Reports
+
+```text
+/reports/customers
+```
+
+Product Reports
+
+```text
+/reports/products
+```
+
+Dispatch Reports
+
+```text
+/reports/dispatch
+```
+
+Export History
+
+```text
+/reports/exports
+```
+
+---
+
+## 5. Navigation
+
+```text
+Dashboard
+
+↓
+
+Reports
+```
+
+Users only see reports they are authorized to access.
+
+Unavailable report categories are hidden from the navigation menu.
+
+---
+
+## 6. Navigation Flow
+
+```text
+Dashboard
+
+↓
+
+Reports
+
+↓
+
+Report Category
+
+↓
+
+Report Filters
+
+↓
+
+Generate Report
+
+↓
+
+View Report
+
+↓
+
+Print / Export
+```
+
+---
+
+## 7. Reporting Lifecycle
+
+```text
+User Opens Report
+
+↓
+
+Permissions Verified
+
+↓
+
+Filters Applied
+
+↓
+
+Data Retrieved
+
+↓
+
+Calculations Performed
+
+↓
+
+Report Generated
+
+↓
+
+Display Results
+
+↓
+
+Optional Export
+
+↓
+
+Audit Logged
+```
+
+If report generation fails, no partial report is displayed.
+
+---
+
+## 8. Screen Inventory
+
+The module contains:
+
+- Reporting Dashboard
+- Operational Reports
+- Financial Reports
+- Sales Reports
+- Customer Reports
+- Product Reports
+- Dispatch Reports
+- Export History
+
+Future releases may include:
+
+- Scheduled Reports
+- Email Delivery
+- Interactive Charts
+- Executive Dashboards
+- AI Insights
+- Predictive Analytics
+
+---
+
+## 9. Reporting Dashboard
+
+### Purpose
+
+Provides centralized access to all available reports.
+
+Displays report categories according to user permissions.
+
+---
+
+### Screen Layout
+
+The page contains:
+
+- Breadcrumb
+- Page Header
+- Report Category Cards
+- Recently Generated Reports
+- Quick Report Shortcuts
+- Export History Widget
+
+Desktop
+
+Three-column responsive grid.
+
+Tablet
+
+Two-column grid.
+
+Mobile
+
+Single-column stacked cards.
+
+---
+
+## 10. Page Header
+
+Title
+
+```text
+Reporting
+```
+
+Subtitle
+
+```text
+Generate operational and financial reports for business analysis.
+```
+
+---
+
+## 11. Breadcrumb
+
+```text
+Home
+
+↓
+
+Reports
+```
+
+---
+
+## 12. Report Categories
+
+Available report groups:
+
+Operational
+
+Financial
+
+Sales
+
+Customers
+
+Products
+
+Dispatch
+
+Each category card displays:
+
+- Report Count
+- Description
+- Quick Access Button
+
+Only authorized categories are visible.
+
+---
+
+## 13. Global Filters
+
+Every report supports configurable filters.
+
+Available filters include:
+
+- Business Date
+- Date Range
+- Customer
+- Salesperson
+- Territory
+- Product
+- Product Category
+- Dispatch Status
+- Payment Method
+
+Reports apply only the filters relevant to the selected report.
+
+---
+
+## 14. Report Generation
+
+Workflow
+
+```text
+Select Report
+
+↓
+
+Apply Filters
+
+↓
+
+Validate Input
+
+↓
+
+Generate Dataset
+
+↓
+
+Perform Calculations
+
+↓
+
+Render Report
+
+↓
+
+Display Results
+```
+
+Reports are generated on demand.
+
+No report data is cached beyond the configured cache duration.
+
+---
+
+## 15. Report Viewer
+
+Every report includes:
+
+- Report Title
+- Applied Filters
+- Generation Timestamp
+- Generated By
+- Data Table
+- Summary Section
+- Action Toolbar
+
+Toolbar
+
+- Refresh
+- Print
+- Export PDF
+- Export Excel
+- Export CSV
+
+---
+
+## 16. Search
+
+Available on reports that display tabular data.
+
+Search updates after a 300-millisecond debounce.
+
+Search supports:
+
+- Partial matches
+- Case-insensitive comparisons
+- Trimmed whitespace
+
+---
+
+## 17. Sorting
+
+Reports supporting tabular data allow sorting.
+
+Supported sort directions:
+
+- Ascending
+- Descending
+
+Default sort varies by report type.
+
+Sorting is performed on the server.
+
+---
+
+## 18. Pagination
+
+Default page size
+
+25 records
+
+Available options
+
+- 10
+- 25
+- 50
+- 100
+
+Pagination is executed server-side.
+
+---
+
+## 19. Loading State
+
+During report generation:
+
+- Skeleton placeholders displayed.
+- Filter controls disabled.
+- Export actions disabled.
+- Refresh disabled.
+
+Layout remains stable to prevent content shifting.
+
+---
+
+## 20. Empty State
+
+Title
+
+```text
+No Data Available
+```
+
+Message
+
+```text
+No records match the selected report filters.
+```
+
+Primary Action
+
+```text
+Modify Filters
+```
+
+---
+
+## 21. Error State
+
+Display
+
+```text
+Unable to generate report.
+
+Please try again.
+```
+
+Retry Button
+
+```text
+Retry
+```
+
+Retry attempts to regenerate the report using the existing filters.
+
+---
+
+## 22. Micro-Interactions
+
+Filter Controls
+
+- Focus highlight.
+- Keyboard navigation.
+- Clear button where applicable.
+
+Report Cards
+
+- Hover elevation.
+- Click animation.
+
+Table Rows
+
+- Hover highlight.
+- Pointer cursor where drill-down is available.
+
+Buttons
+
+- Hover transition.
+- Loading indicator during processing.
+
+Export Menu
+
+- Fade animation.
+- Closes on outside click.
+- Closes with Escape key.
+
+---
+
+## 23. Export Options
+
+Supported formats
+
+- PDF
+- Excel (.xlsx)
+- CSV
+
+Exported reports include:
+
+- Company Information
+- Report Title
+- Applied Filters
+- Generated Timestamp
+- User Name
+- Data Table
+- Summary Totals
+
+Exports respect the same permissions as on-screen reports.
+
+---
+
+## 24. Business Rules
+
+The Reporting module enforces the following rules:
+
+- Users can only access authorized reports.
+- Reports use current posted business data.
+- Draft records are excluded from financial reports.
+- Exported reports mirror displayed data.
+- Report filters are validated before execution.
+- Audit records are created for exports.
+
+---
+
+## 25. Acceptance Criteria (Part 1)
+
+The Reporting Dashboard functionality is complete when:
+
+- Authorized report categories display correctly.
+- Reports generate successfully.
+- Filters validate correctly.
+- Search and sorting operate correctly.
+- Pagination functions correctly.
+- Loading, empty, and error states behave correctly.
+- Export actions are permission-controlled.
+- Audit events are generated for report exports.
+
+---
+
+## 26. Operational Reports
+
+Operational Reports provide visibility into the daily execution of business activities.
+
+These reports are generated using live operational data and are intended for Operations Managers, Sales Coordinators, and System Administrators.
+
+Available Reports
+
+- Daily Dispatch Summary
+- Salesperson Performance
+- Product Movement
+- Product Returns
+- Damaged Products
+- Daily Route Performance
+
+---
+
+## 27. Daily Dispatch Summary
+
+### Purpose
+
+Provides a complete summary of all dispatches for a selected business date.
+
+### Route
+
+```text
+/reports/operations/daily-dispatch
+```
+
+Available Filters
+
+- Business Date
+- Salesperson
+- Territory
+- Dispatch Status
+
+Displayed Columns
+
+- Dispatch Number
+- Dispatch Date
+- Salesperson
+- Territory
+- Loaded Quantity
+- Sold Quantity
+- Returned Quantity
+- Damaged Quantity
+- Net Sales
+- Status
+
+Summary Section
+
+- Total Dispatches
+- Total Products Loaded
+- Total Products Sold
+- Total Returns
+- Total Damaged
+- Total Net Sales
+
+Drill-down
+
+Selecting a dispatch opens:
+
+```text
+/dispatch/{dispatchId}
+```
+
+---
+
+## 28. Salesperson Performance Report
+
+### Route
+
+```text
+/reports/sales/performance
+```
+
+Purpose
+
+Measures individual salesperson productivity.
+
+Available Filters
+
+- Date Range
+- Territory
+- Salesperson
+
+Displayed Columns
+
+- Salesperson
+- Dispatches Completed
+- Customers Served
+- Gross Sales
+- Returns
+- Damages
+- Net Sales
+- Collections
+- Outstanding Balance
+
+Summary Metrics
+
+- Average Sales per Dispatch
+- Average Collection Rate
+- Return Percentage
+- Damage Percentage
+
+---
+
+## 29. Product Movement Report
+
+### Route
+
+```text
+/reports/products/movement
+```
+
+Purpose
+
+Tracks daily product movement.
+
+Displayed Columns
+
+- Product Code
+- Product Name
+- Loaded
+- Sold
+- Returned
+- Damaged
+- Remaining
+
+Available Filters
+
+- Date Range
+- Product
+- Category
+- Territory
+
+Summary
+
+- Total Loaded
+- Total Sold
+- Total Returned
+- Total Damaged
+
+---
+
+## 30. Product Returns Report
+
+### Route
+
+```text
+/reports/products/returns
+```
+
+Displays
+
+- Product
+- Customer
+- Salesperson
+- Return Quantity
+- Return Value
+- Return Reason
+
+Filters
+
+- Date Range
+- Territory
+- Product
+
+Summary
+
+- Total Returned Quantity
+- Total Return Value
+
+---
+
+## 31. Damaged Products Report
+
+### Route
+
+```text
+/reports/products/damages
+```
+
+Displays
+
+- Product
+- Salesperson
+- Quantity
+- Estimated Loss
+- Damage Reason
+
+Summary
+
+- Total Damage Quantity
+- Total Estimated Loss
+
+---
+
+## 32. Financial Reports
+
+Financial reports use only posted ledger transactions.
+
+Draft records are excluded.
+
+Available Reports
+
+- Revenue Summary
+- Customer Outstanding Balances
+- Daily Collections
+- Monthly Collections
+- Aging Analysis
+- Adjustment Summary
+
+---
+
+## 33. Revenue Summary
+
+### Route
+
+```text
+/reports/financial/revenue
+```
+
+Displays
+
+- Gross Sales
+- Returns
+- Damages
+- Net Revenue
+
+Filters
+
+- Date Range
+- Territory
+- Salesperson
+
+Summary
+
+- Gross Revenue
+- Net Revenue
+- Average Daily Revenue
+
+---
+
+## 34. Customer Outstanding Report
+
+### Route
+
+```text
+/reports/financial/outstanding
+```
+
+Columns
+
+- Customer
+- Territory
+- Credit Limit
+- Outstanding Balance
+- Last Payment Date
+- Aging Category
+
+Filters
+
+- Territory
+- Customer
+- Salesperson
+
+Summary
+
+- Total Outstanding
+- Total Customers
+- Average Outstanding
+
+---
+
+## 35. Daily Collections Report
+
+### Route
+
+```text
+/reports/financial/collections
+```
+
+Columns
+
+- Receipt Number
+- Customer
+- Payment Method
+- Amount
+- Salesperson
+- Posting Date
+
+Summary
+
+- Cash
+- Bank Transfer
+- Cheque
+- Total Collections
+
+---
+
+## 36. Aging Analysis
+
+Purpose
+
+Shows outstanding balances grouped by age.
+
+Categories
+
+- Current
+- 1–30 Days
+- 31–60 Days
+- 61–90 Days
+- Over 90 Days
+
+Columns
+
+- Customer
+- Outstanding
+- Aging Bucket
+
+Summary
+
+- Total Outstanding
+- Percentage by Bucket
+
+---
+
+## 37. Sales Reports
+
+Available Reports
+
+- Sales by Product
+- Sales by Territory
+- Sales by Customer
+- Sales Trend
+- Sales Comparison
+
+---
+
+## 38. Sales by Product
+
+Columns
+
+- Product
+- Quantity Sold
+- Revenue
+- Returns
+- Net Revenue
+
+Filters
+
+- Date Range
+- Product Category
+
+Summary
+
+- Top Selling Products
+- Lowest Selling Products
+
+---
+
+## 39. Sales by Territory
+
+Columns
+
+- Territory
+- Gross Sales
+- Returns
+- Net Sales
+- Collections
+
+Summary
+
+- Territory Ranking
+- Average Revenue
+
+---
+
+## 40. Customer Reports
+
+Available Reports
+
+- Customer Purchase History
+- Customer Ledger Summary
+- Customer Payment History
+- Customer Credit Exposure
+
+---
+
+## 41. Customer Purchase History
+
+Columns
+
+- Invoice
+- Dispatch
+- Purchase Date
+- Products Purchased
+- Amount
+
+Summary
+
+- Total Purchases
+- Average Purchase Value
+
+Drill-down
+
+```text
+Dispatch Details
+```
+
+---
+
+## 42. Product Reports
+
+Available Reports
+
+- Product Performance
+- Product Pricing
+- Product Availability
+- Product Profitability (Future)
+
+Each report supports:
+
+- Search
+- Filters
+- Export
+- Print
+- Drill-down
+
+---
+
+## 43. Dispatch Reports
+
+Available Reports
+
+- Dispatch Performance
+- Dispatch Completion
+- Daily Dispatch Summary
+- Salesperson Dispatch Analysis
+
+Summary Metrics
+
+- Dispatch Count
+- Completion Rate
+- Average Dispatch Value
+
+---
+
+## 44. Drill-Down Behaviour
+
+Where supported, selecting a report row opens the source record.
+
+Examples
+
+Dispatch Report
+
+↓
+
+Dispatch Details
+
+Customer Report
+
+↓
+
+Customer Profile
+
+Ledger Report
+
+↓
+
+Ledger Entry
+
+Payment Report
+
+↓
+
+Payment Details
+
+Users cannot drill into records they are not authorized to access.
+
+---
+
+## 45. Validation Rules
+
+Validation occurs before report execution.
+
+Validation includes
+
+- Valid date range.
+- Existing customer.
+- Existing salesperson.
+- Existing territory.
+- Valid product.
+- Valid category.
+- User permissions.
+
+Invalid filter combinations prevent report generation.
+
+---
+
+## 46. Success Notifications
+
+```text
+Report generated successfully.
+```
+
+```text
+Report exported successfully.
+```
+
+```text
+Filters applied successfully.
+```
+
+---
+
+## 47. Error Messages
+
+Invalid Date Range
+
+```text
+The selected date range is invalid.
+```
+
+Permission Denied
+
+```text
+You do not have permission to access this report.
+```
+
+No Records
+
+```text
+No records were found.
+```
+
+Unexpected Error
+
+```text
+An unexpected error occurred.
+
+Please try again.
+```
+
+---
+
+## 48. Acceptance Criteria (Part 2)
+
+The Reporting module is complete when:
+
+- Operational reports generate correctly.
+- Financial reports use only posted transactions.
+- Sales reports calculate accurately.
+- Customer reports display correctly.
+- Product reports summarize movement correctly.
+- Dispatch reports display operational performance.
+- Drill-down navigation functions correctly.
+- Report validation prevents invalid execution.
+- Success and error notifications behave correctly.
+
+---
+
+## 49. Export History
+
+### Route
+
+```text
+/reports/exports
+```
+
+### Purpose
+
+Provides a complete history of reports generated and exported by authorized users.
+
+The Export History screen improves auditability by allowing administrators and authorized users to review when reports were generated, by whom, and in which format.
+
+---
+
+### Screen Layout
+
+The page contains:
+
+- Breadcrumb
+- Search Box
+- User Filter
+- Report Type Filter
+- Export Format Filter
+- Date Range Filter
+- Export History Table
+- Pagination Controls
+
+---
+
+### Export History Table
+
+Columns
+
+- Export ID
+- Report Name
+- Report Category
+- Generated By
+- Export Format
+- Generated Date
+- File Size
+- Status
+
+Status values
+
+- Completed
+- Failed
+- Expired
+
+---
+
+### Available Actions
+
+- View Export Details
+- Download (if file still available)
+- Regenerate Report
+
+Expired exports require regeneration.
+
+---
+
+## 50. Export Processing
+
+Supported export formats
+
+- PDF
+- Microsoft Excel (.xlsx)
+- CSV
+
+Export workflow
+
+```text
+User Selects Export
+
+↓
+
+Validate Permissions
+
+↓
+
+Validate Filters
+
+↓
+
+Generate Dataset
+
+↓
+
+Generate File
+
+↓
+
+Store Temporary Export
+
+↓
+
+Create Audit Record
+
+↓
+
+Download Available
+```
+
+Exports use the exact dataset currently displayed on screen.
+
+Exported reports include:
+
+- Company Name
+- Company Logo (optional)
+- Report Title
+- Applied Filters
+- Generated By
+- Generated Date & Time
+- Data Table
+- Summary Totals
+- Page Numbers (PDF)
+
+---
+
+## 51. Report Audit Logging
+
+Every report execution is recorded.
+
+Audit Events
+
+- Report Viewed
+- Report Generated
+- Report Exported
+- Report Printed
+- Failed Report Generation
+- Failed Export
+- Permission Denied
+
+Each audit record contains:
+
+- Event ID
+- Timestamp
+- User ID
+- Report Name
+- Report Category
+- Applied Filters
+- Export Format (if applicable)
+- Correlation ID
+- Client IP Address
+- User Agent
+
+Audit records are immutable.
+
+---
+
+## 52. Security Requirements
+
+The Reporting module complies with the EMA-BDMS Security Model.
+
+Requirements include:
+
+- Role-Based Access Control (RBAC)
+- Server-side authorization
+- Supabase Row-Level Security (RLS)
+- HTTPS-only communication
+- Secure API endpoints
+- Input validation
+- Output encoding
+- Rate limiting
+- Complete audit logging
+
+Permission Matrix
+
+| Permission    | Description                        |
+| ------------- | ---------------------------------- |
+| Report.View   | View reports                       |
+| Report.Export | Export reports                     |
+| Report.Print  | Print reports                      |
+| Report.Admin  | Administrative reporting functions |
+
+Users may only access reports for which they have explicit permission.
+
+Salespersons are restricted to reports for their assigned territory unless elevated permissions are granted.
+
+---
+
+## 53. Business Rules
+
+The Reporting module enforces the following rules:
+
+- Reports are generated from committed business data only.
+- Draft operational records are excluded from financial reports.
+- Exported reports exactly match the displayed dataset.
+- Report calculations are performed server-side.
+- Unauthorized reports remain hidden from navigation.
+- Report filters are validated before execution.
+- Historical report data cannot modify operational records.
+- Audit logs are created for every report generation and export.
+
+---
+
+## 54. Notifications
+
+Success Notifications
+
+```text
+Report generated successfully.
+```
+
+```text
+Report exported successfully.
+```
+
+```text
+Report printed successfully.
+```
+
+Error Notifications
+
+```text
+Unable to generate report.
+```
+
+```text
+Export failed.
+```
+
+```text
+Permission denied.
+```
+
+```text
+Unexpected server error.
+```
+
+Success notifications automatically dismiss after the configured timeout.
+
+Critical failures remain visible until acknowledged.
+
+---
+
+## 55. Responsive Behaviour
+
+### Desktop
+
+- Multi-column data tables.
+- Persistent filter sidebar (where applicable).
+- Sticky report toolbar.
+- Simultaneous summary and detail panels.
+
+---
+
+### Tablet
+
+- Responsive tables.
+- Wrapped toolbar.
+- Collapsible filter panel.
+- Adaptive summary cards.
+
+---
+
+### Mobile
+
+- Card-based report layouts.
+- Expandable detail sections.
+- Bottom-sheet export menu.
+- Sticky filter button.
+- Horizontal scrolling for large datasets when necessary.
+
+All report functionality remains available across supported devices.
+
+---
+
+## 56. Performance Requirements
+
+Target performance
+
+| Operation                | Target      |
+| ------------------------ | ----------- |
+| Open Reporting Dashboard | < 1 second  |
+| Generate Standard Report | < 2 seconds |
+| Generate Large Report    | < 5 seconds |
+| Search                   | < 300 ms    |
+| Export PDF               | < 5 seconds |
+| Export Excel             | < 5 seconds |
+| Export CSV               | < 3 seconds |
+
+Additional requirements
+
+- Server-side pagination.
+- Server-side filtering.
+- Indexed report queries.
+- Cached reference data where appropriate.
+- Streaming exports for large datasets.
+
+---
+
+## 57. Accessibility
+
+The Reporting module complies with WCAG 2.1 AA.
+
+Requirements include:
+
+- Full keyboard navigation.
+- Screen-reader compatibility.
+- Semantic HTML.
+- Accessible data tables.
+- Accessible charts (future releases).
+- Logical tab order.
+- Visible focus indicators.
+- Accessible filter controls.
+- Accessible export dialogs.
+- Minimum AA color contrast.
+
+Exported PDF documents should preserve logical reading order where supported.
+
+---
+
+## 58. Future Enhancements
+
+The Reporting module has been designed for future expansion.
+
+Planned enhancements include:
+
+- Scheduled report generation.
+- Automatic email delivery.
+- Report subscriptions.
+- Interactive dashboards.
+- Drill-through analytics.
+- Embedded charts and graphs.
+- Executive KPI dashboards.
+- AI-powered business insights.
+- Predictive sales forecasting.
+- Inventory demand forecasting.
+- Customer purchasing trend analysis.
+- Power BI integration.
+- Microsoft Excel live integration.
+- Business intelligence API.
+
+---
+
+## 59. Acceptance Criteria
+
+The Reporting module is complete when:
+
+- Authorized users can access assigned reports.
+- Operational reports generate correctly.
+- Financial reports use only posted financial transactions.
+- Report filters validate successfully.
+- Search, sorting, and pagination operate correctly.
+- Drill-down navigation works correctly.
+- Reports export to PDF, Excel, and CSV.
+- Export history is maintained.
+- Audit events are generated correctly.
+- Security policies are enforced.
+- Accessibility requirements are satisfied.
+- Performance targets are achieved.
+
+---
+
+## 60. References
+
+This module is governed by:
+
+- `/architecture/DOMAIN_MODEL.md`
+- `/architecture/BUSINESS_RULE_ENGINE.md`
+- `/architecture/WORKFLOW_ENGINE.md`
+- `/architecture/SECURITY_MODEL.md`
+- `/architecture/CQRS.md`
+- `/docs/SYSTEM_REQUIREMENTS_SPECIFICATION.md`
+
+Related functional specifications:
+
+- `/docs/functional-specification/DISPATCH_MANAGEMENT.md`
+- `/docs/functional-specification/LEDGER_MANAGEMENT.md`
+- `/docs/functional-specification/PAYMENT_MANAGEMENT.md`
+- `/docs/functional-specification/DASHBOARD.md`
+
+---
+
+## 61. Conclusion
+
+The Reporting module serves as the analytical and decision-support layer of the EMA Bakery Distribution Management System.
+
+By consolidating operational, financial, sales, customer, product, dispatch, and payment data into secure, real-time reports, the module enables informed decision-making across every level of the organization. Its architecture ensures that reports are accurate, permission-aware, auditable, and performant while remaining scalable for future enhancements such as predictive analytics, scheduled reporting, and business intelligence integrations.
+
+The Reporting module is designed to provide enterprise-grade reporting capabilities while maintaining consistency with the system's security model, immutable financial records, and high standards for reliability, accessibility, and maintainability.
