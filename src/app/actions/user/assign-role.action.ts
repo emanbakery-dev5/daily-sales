@@ -1,11 +1,18 @@
 "use server";
 
 import { requirePermission } from "@/lib/permissions/guard";
-import { AppError, createActionSuccess, safeServerAction } from "@/lib/errors/app-error";
+import {
+  AppError,
+  createActionSuccess,
+  safeServerAction,
+} from "@/lib/errors/app-error";
 import { AUTH_ERRORS } from "@/lib/errors/error-codes";
 import { writeAuditLog } from "@/lib/audit/audit-logger";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
-import { assignUserRoleSchema, type AssignUserRole } from "@/lib/validation/user.schemas";
+import {
+  assignUserRoleSchema,
+  type AssignUserRole,
+} from "@/lib/validation/user.schemas";
 import { randomUUID } from "crypto";
 import { headers } from "next/headers";
 import { extractIpAddress, extractUserAgent } from "@/lib/audit/audit-logger";
@@ -21,12 +28,19 @@ export async function assignRoleAction(data: AssignUserRole) {
     // 2. Validate Input
     const parsed = assignUserRoleSchema.safeParse(data);
     if (!parsed.success) {
-      throw new AppError(AUTH_ERRORS.INVALID_EMAIL, correlationId, parsed.error.message);
+      throw new AppError(
+        AUTH_ERRORS.INVALID_EMAIL,
+        correlationId,
+        parsed.error.message,
+      );
     }
     const validated = parsed.data;
 
     // Optional: Business Rule - Only system_administrator can assign the system_administrator role
-    if (validated.role === UserRole.SYSTEM_ADMINISTRATOR && currentUser.role !== UserRole.SYSTEM_ADMINISTRATOR) {
+    if (
+      validated.role === UserRole.SYSTEM_ADMINISTRATOR &&
+      currentUser.role !== UserRole.SYSTEM_ADMINISTRATOR
+    ) {
       throw new AppError(AUTH_ERRORS.PERMISSION_DENIED, correlationId);
     }
 
@@ -41,7 +55,11 @@ export async function assignRoleAction(data: AssignUserRole) {
       .eq("id", validated.id);
 
     if (profileError) {
-      throw new AppError(AUTH_ERRORS.INTERNAL_ERROR, correlationId, profileError);
+      throw new AppError(
+        AUTH_ERRORS.INTERNAL_ERROR,
+        correlationId,
+        profileError,
+      );
     }
 
     // 5. Audit Logging

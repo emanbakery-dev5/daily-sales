@@ -2,11 +2,13 @@
 
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requirePermission } from "@/lib/permissions/guard";
+import { AppError } from "@/lib/errors/app-error";
+import { ErrorCode } from "@/lib/errors/error-codes";
 
 export async function getDashboardMetricsAction() {
   const { profile } = await requirePermission("Dashboard.View");
 
-  const supabase = await createSupabaseServerClient();
+  const supabase = (await createSupabaseServerClient()) as any;
   const { data, error } = await supabase
     .from("dashboard_kpi_metrics")
     .select("*")

@@ -3,17 +3,20 @@ import { getDashboardChartsAction } from "@/app/actions/dashboard/get-charts.act
 import { getDashboardActivityAction } from "@/app/actions/dashboard/get-activity.action";
 import { getDashboardBalancesAction } from "@/app/actions/dashboard/get-balances.action";
 import { DashboardClient } from "./DashboardClient";
-import { getUserProfileAction } from "@/app/actions/auth/get-session.action";
+import { getUserProfile } from "@/app/actions/auth/get-session.action";
 import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
-  const profile = await getUserProfileAction();
+  const profile = await getUserProfile();
 
   if (!profile) {
     redirect("/login");
   }
 
-  let metrics, charts, activities, balances;
+  let metrics: any = null;
+  let charts: any = null;
+  let activities: any[] = [];
+  let balances: any[] = [];
   let hasError = false;
 
   try {
@@ -46,7 +49,7 @@ export default async function DashboardPage() {
       initialActivities={activities}
       initialBalances={balances}
       userRole={profile.role}
-      userName={profile.full_name}
+      userName={profile.fullName}
     />
   );
 }

@@ -8,7 +8,7 @@ import { ErrorCode } from "@/lib/errors/error-codes";
 export async function getDashboardBalancesAction() {
   const { profile } = await requirePermission("Dashboard.View");
 
-  const supabase = await createSupabaseServerClient();
+  const supabase = (await createSupabaseServerClient()) as any;
   const { data, error } = await supabase
     .from("dashboard_outstanding_balances")
     .select("*")

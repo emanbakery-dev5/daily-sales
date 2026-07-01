@@ -27,7 +27,7 @@ export async function getDashboardChartsAction(filters: DashboardFilter) {
     ? format(new Date(parsed.data.endDate), "yyyy-MM-dd")
     : format(new Date(), "yyyy-MM-dd");
 
-  const supabase = await createSupabaseServerClient();
+  const supabase = (await createSupabaseServerClient()) as any;
 
   const [revenueRes, dispatchRes] = await Promise.all([
     supabase.rpc("get_dashboard_revenue_trend", {
